@@ -42,13 +42,9 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           <div className="flex items-center">
             <img 
-              src="https://api.aistudio.google.com/v1/projects/ais-dev-hbhtgsxfpeax2e2dn4rh7b/files/logo.png" 
+              src="/Black-Red-Minimalist-Welding-Man-Logo-T2.png" 
               alt="KC Welding Logo" 
               className="h-12 w-auto mr-3"
-              onError={(e) => {
-                e.currentTarget.src = 'https://raw.githubusercontent.com/lucide-react/lucide/main/icons/shield.svg';
-                e.currentTarget.className = 'h-10 w-10 text-brand-green';
-              }}
             />
             <span className="text-2xl font-black tracking-tighter text-white hidden sm:block">
               KC<span className="text-brand-green">WELDING</span>
@@ -461,13 +457,9 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex items-center">
             <img 
-              src="https://api.aistudio.google.com/v1/projects/ais-dev-hbhtgsxfpeax2e2dn4rh7b/files/logo.png" 
+              src="/Black-Red-Minimalist-Welding-Man-Logo-T2.png" 
               alt="KC Welding Logo" 
               className="h-10 w-auto mr-3 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all"
-              onError={(e) => {
-                e.currentTarget.src = 'https://raw.githubusercontent.com/lucide-react/lucide/main/icons/shield.svg';
-                e.currentTarget.className = 'h-8 w-8 text-zinc-700';
-              }}
             />
             <div>
               <span className="text-2xl font-black tracking-tighter text-white">
