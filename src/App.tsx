@@ -4,19 +4,19 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { 
-  Hammer, 
-  Truck, 
-  ShieldCheck, 
-  Zap, 
-  Clock, 
-  ChevronRight, 
-  Menu, 
-  X, 
-  Phone, 
-  Mail, 
-  MapPin, 
-  Award, 
+import {
+  Hammer,
+  Truck,
+  ShieldCheck,
+  Zap,
+  Clock,
+  ChevronRight,
+  Menu,
+  X,
+  Phone,
+  Mail,
+  MapPin,
+  Award,
   HardHat,
   Wrench,
   Factory,
@@ -41,16 +41,15 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
-            <img 
-              src="/Black-Red-Minimalist-Welding-Man-Logo-T2.png" 
-              alt="KC Welding Logo" 
-              className="h-12 w-auto mr-3"
-            />
-            <span className="text-2xl font-black tracking-tighter text-white hidden sm:block">
-              KC<span className="text-brand-green">WELDING</span>
-            </span>
+            <div className="bg-white rounded-full p-4 flex items-center justify-center shadow-xl border-4 border-zinc-950/10">
+              <img
+                src="/Black-Red-Minimalist-Welding-Man-Logo-T2.png"
+                alt="KC Welding Logo"
+                className="h-36 w-36 object-contain"
+              />
+            </div>
           </div>
-          
+
           <div className="hidden md:flex items-center space-x-8">
             <a href="#services" className="text-sm font-medium text-zinc-300 hover:text-brand-green transition-colors uppercase tracking-widest">Services</a>
             <a href="#authority" className="text-sm font-medium text-zinc-300 hover:text-brand-green transition-colors uppercase tracking-widest">Authority</a>
@@ -71,7 +70,7 @@ const Navbar = () => {
       {/* Mobile menu */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
@@ -97,9 +96,9 @@ const Hero = () => {
     <section className="relative h-screen flex items-center overflow-hidden bg-zinc-950">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80&w=2070" 
-          alt="Industrial Welding Sparks" 
+        <img
+          src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80&w=2070"
+          alt="Industrial Welding Sparks"
           className="w-full h-full object-cover opacity-30 grayscale"
           referrerPolicy="no-referrer"
         />
@@ -120,15 +119,15 @@ const Hero = () => {
             </span>
             <span className="text-brand-green text-xs font-bold uppercase tracking-[0.2em]">AWS Certified & Mobile Ready</span>
           </div>
-          
+
           <h1 className="text-5xl md:text-7xl font-black text-white leading-tight mb-6 uppercase tracking-tighter">
             Precision Industrial Welding & <span className="text-brand-green">High-Tensile</span> Fabrication
           </h1>
-          
+
           <p className="text-xl md:text-2xl text-zinc-400 mb-10 font-light leading-relaxed">
             When failure is not an option. We provide X-ray quality welds for heavy equipment, industrial infrastructure, and high-liability commercial projects.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4">
             <button className="bg-brand-green hover:bg-brand-green-dark text-white px-8 py-4 rounded-sm text-lg font-bold uppercase tracking-widest transition-all flex items-center justify-center group">
               Request a Project Consultation
@@ -243,7 +242,7 @@ const Services = () => {
 
         <div className="grid md:grid-cols-3 gap-8">
           {services.map((service, i) => (
-            <motion.div 
+            <motion.div
               key={i}
               whileHover={{ y: -10 }}
               className="bg-zinc-900 border border-zinc-800 p-10 flex flex-col h-full"
@@ -303,7 +302,7 @@ const Authority = () => {
               </div>
             </div>
           </div>
-          
+
           <div className="order-1 lg:order-2">
             <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter mb-8">
               The <span className="text-brand-green">Authority</span> in High-Stakes Welding
@@ -352,9 +351,9 @@ const Gallery = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {images.map((img, i) => (
             <div key={i} className="group relative overflow-hidden aspect-[4/3] bg-zinc-900 border border-zinc-800">
-              <img 
-                src={img.url} 
-                alt={img.title} 
+              <img
+                src={img.url}
+                alt={img.title}
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
                 referrerPolicy="no-referrer"
               />
@@ -381,7 +380,7 @@ const Contact = () => {
             <p className="text-xl mb-12 font-medium text-zinc-100">
               Whether you need a high-liability fabrication consultation or emergency onsite repair, our AWS Certified team is ready to dispatch.
             </p>
-            
+
             <div className="space-y-8">
               <div className="flex items-start">
                 <div className="bg-zinc-950 p-3 mr-6">
@@ -412,7 +411,7 @@ const Contact = () => {
               </div>
             </div>
           </div>
-          
+
           <div className="bg-zinc-950 p-10 border border-zinc-900 shadow-2xl">
             <h3 className="text-2xl font-black uppercase tracking-tighter mb-8">Request Consultation</h3>
             <form className="space-y-6">
@@ -456,9 +455,9 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex items-center">
-            <img 
-              src="/Black-Red-Minimalist-Welding-Man-Logo-T2.png" 
-              alt="KC Welding Logo" 
+            <img
+              src="/Black-Red-Minimalist-Welding-Man-Logo-T2.png"
+              alt="KC Welding Logo"
               className="h-10 w-auto mr-3 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all"
             />
             <div>
@@ -468,13 +467,13 @@ const Footer = () => {
               <p className="text-zinc-600 text-xs uppercase tracking-widest font-bold">Industrial Fabrication & Repair Authority</p>
             </div>
           </div>
-          
+
           <div className="flex space-x-8">
             <a href="#" className="text-zinc-500 hover:text-white transition-colors text-xs uppercase tracking-widest font-bold">Privacy Policy</a>
             <a href="#" className="text-zinc-500 hover:text-white transition-colors text-xs uppercase tracking-widest font-bold">Terms of Service</a>
             <a href="#" className="text-zinc-500 hover:text-white transition-colors text-xs uppercase tracking-widest font-bold">Liability Coverage</a>
           </div>
-          
+
           <div className="text-zinc-600 text-[10px] uppercase tracking-widest font-bold">
             © {new Date().getFullYear()} KC Welding. All Rights Reserved. AWS Certified.
           </div>
