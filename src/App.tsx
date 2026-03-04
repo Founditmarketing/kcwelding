@@ -41,7 +41,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
-            <div className="bg-white rounded-full p-4 flex items-center justify-center shadow-xl border-4 border-zinc-950/10">
+            <div className="bg-white rounded-full p-1 flex items-center justify-center shadow-xl border-2 border-zinc-950/5">
               <img
                 src="/Black-Red-Minimalist-Welding-Man-Logo-T2.png"
                 alt="KC Welding Logo"
