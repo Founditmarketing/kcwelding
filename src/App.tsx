@@ -64,6 +64,15 @@ const Navbar = ({ onNavigate }: { onNavigate: (page: string) => void }) => {
     setIsOpen(false);
   };
 
+  const handleContact = (e: React.MouseEvent) => {
+    e.preventDefault();
+    onNavigate('home');
+    setTimeout(() => {
+      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+    setIsOpen(false);
+  };
+
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-zinc-950/95 backdrop-blur-md border-b border-zinc-800 py-3' : 'bg-transparent py-5'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -82,7 +91,7 @@ const Navbar = ({ onNavigate }: { onNavigate: (page: string) => void }) => {
             <a href="#services" onClick={handleServices} className="text-sm font-medium text-zinc-300 hover:text-brand-green transition-colors uppercase tracking-widest">Services</a>
             <a href="#" onClick={handleAbout} className="text-sm font-medium text-zinc-300 hover:text-brand-green transition-colors uppercase tracking-widest">About</a>
             <a href="#gallery" onClick={handleGallery} className="text-sm font-medium text-zinc-300 hover:text-brand-green transition-colors uppercase tracking-widest">Gallery</a>
-            <a href="#contact" className="bg-brand-green hover:bg-brand-green-dark text-white px-6 py-2 rounded-sm text-sm font-bold uppercase tracking-widest transition-all">
+            <a href="#contact" onClick={handleContact} className="bg-brand-green hover:bg-brand-green-dark text-white px-6 py-2 rounded-sm text-sm font-bold uppercase tracking-widest transition-all">
               Dispatch Emergency Repair
             </a>
           </div>
@@ -108,7 +117,7 @@ const Navbar = ({ onNavigate }: { onNavigate: (page: string) => void }) => {
               <a href="#services" onClick={handleServices} className="block text-lg font-medium text-zinc-300 py-2">Services</a>
               <a href="#" onClick={handleAbout} className="block text-lg font-medium text-zinc-300 py-2">About</a>
               <a href="#gallery" onClick={handleGallery} className="block text-lg font-medium text-zinc-300 py-2">Gallery</a>
-              <a href="#contact" onClick={() => setIsOpen(false)} className="block bg-brand-green text-white px-6 py-3 rounded-sm text-center font-bold uppercase tracking-widest">
+              <a href="#contact" onClick={handleContact} className="block bg-brand-green text-white px-6 py-3 rounded-sm text-center font-bold uppercase tracking-widest">
                 Dispatch Emergency Repair
               </a>
             </div>
@@ -419,7 +428,7 @@ const Gallery = ({ onViewAll }: { onViewAll: () => void }) => {
 
 const GalleryPage = ({ onBack }: { onBack: () => void }) => {
   return (
-    <div className="min-h-screen bg-zinc-950 pt-52 pb-24">
+    <div className="min-h-screen bg-zinc-950 pt-64 pb-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-12">
@@ -616,7 +625,7 @@ const ServicesPage = ({ onBack }: { onBack: () => void }) => {
   ];
 
   return (
-    <div className="min-h-screen bg-zinc-950 pt-52 pb-24">
+    <div className="min-h-screen bg-zinc-950 pt-64 pb-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <button onClick={onBack} className="inline-flex items-center gap-2 text-zinc-400 hover:text-brand-green transition-colors text-sm font-bold uppercase tracking-widest mb-10 group">
           <ChevronRight className="rotate-180 group-hover:-translate-x-1 transition-transform" size={16} />
@@ -682,7 +691,7 @@ const AboutPage = ({ onBack }: { onBack: () => void }) => {
   ];
 
   return (
-    <div className="min-h-screen bg-zinc-950 pt-52 pb-24">
+    <div className="min-h-screen bg-zinc-950 pt-64 pb-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <button onClick={onBack} className="inline-flex items-center gap-2 text-zinc-400 hover:text-brand-green transition-colors text-sm font-bold uppercase tracking-widest mb-10 group">
           <ChevronRight className="rotate-180 group-hover:-translate-x-1 transition-transform" size={16} />
