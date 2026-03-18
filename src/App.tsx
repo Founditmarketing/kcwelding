@@ -128,7 +128,7 @@ const Navbar = ({ onNavigate }: { onNavigate: (page: string) => void }) => {
   );
 };
 
-const Hero = () => {
+const Hero = ({ onViewGallery }: { onViewGallery: () => void }) => {
   return (
     <section className="relative h-screen overflow-hidden bg-zinc-950">
       {/* Background Image with Overlay */}
@@ -166,11 +166,17 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-8">
-            <button className="bg-brand-green hover:bg-brand-green-dark text-white px-8 py-4 rounded-sm text-lg font-bold uppercase tracking-widest transition-all flex items-center justify-center group">
+            <button
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              className="bg-brand-green hover:bg-brand-green-dark text-white px-8 py-4 rounded-sm text-lg font-bold uppercase tracking-widest transition-all flex items-center justify-center group"
+            >
               Request a Project Consultation
               <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
             </button>
-            <button className="border border-zinc-700 hover:border-zinc-500 text-white px-8 py-4 rounded-sm text-lg font-bold uppercase tracking-widest transition-all">
+            <button
+              onClick={onViewGallery}
+              className="border border-zinc-700 hover:border-zinc-500 text-white px-8 py-4 rounded-sm text-lg font-bold uppercase tracking-widest transition-all"
+            >
               View Industrial Portfolio
             </button>
           </div>
@@ -501,7 +507,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <span className="block text-xs uppercase tracking-widest font-bold opacity-70 mb-1">Emergency Dispatch</span>
-                  <span className="text-2xl font-black tracking-tight">(555) 123-4567</span>
+                  <a href="tel:5733016131" className="text-2xl font-black tracking-tight hover:underline">573-301-6131</a>
                 </div>
               </div>
               <div className="flex items-start">
@@ -510,7 +516,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <span className="block text-xs uppercase tracking-widest font-bold opacity-70 mb-1">Project Consultation</span>
-                  <span className="text-2xl font-black tracking-tight">projects@kcwelding.com</span>
+                  <a href="mailto:kcwelding175@gmail.com" className="text-2xl font-black tracking-tight hover:underline">kcwelding175@gmail.com</a>
                 </div>
               </div>
               <div className="flex items-start">
@@ -518,8 +524,8 @@ const Contact = () => {
                   <MapPin size={24} />
                 </div>
                 <div>
-                  <span className="block text-xs uppercase tracking-widest font-bold opacity-70 mb-1">Service Area</span>
-                  <span className="text-2xl font-black tracking-tight">Regional Industrial Hubs</span>
+                  <span className="block text-xs uppercase tracking-widest font-bold opacity-70 mb-1">Find Us</span>
+                  <a href="https://www.facebook.com/people/KC-welding/100089200659448/" target="_blank" rel="noopener noreferrer" className="text-2xl font-black tracking-tight hover:underline">Facebook Page</a>
                 </div>
               </div>
             </div>
@@ -581,10 +587,14 @@ const Footer = () => {
             </div>
           </div>
 
-
+          <div className="flex flex-col md:flex-row items-center gap-6 text-zinc-500 text-sm">
+            <a href="tel:5733016131" className="hover:text-brand-green transition-colors font-bold">573-301-6131</a>
+            <a href="mailto:kcwelding175@gmail.com" className="hover:text-brand-green transition-colors font-bold">kcwelding175@gmail.com</a>
+            <a href="https://www.facebook.com/people/KC-welding/100089200659448/" target="_blank" rel="noopener noreferrer" className="hover:text-brand-green transition-colors font-bold">Facebook</a>
+          </div>
 
           <div className="text-zinc-600 text-[10px] uppercase tracking-widest font-bold">
-            © {new Date().getFullYear()} KC Welding. All Rights Reserved. AWS Certified.
+            © {new Date().getFullYear()} KC Welding. All Rights Reserved.
           </div>
         </div>
       </div>
@@ -785,7 +795,7 @@ export default function App() {
       ) : (
         <>
           <main>
-            <Hero />
+            <Hero onViewGallery={() => navigate('gallery')} />
             <DeterrenceSection />
             <Services />
             <Authority />
