@@ -358,7 +358,7 @@ const ALL_IMAGES = [
 ];
 
 const Gallery = ({ onViewAll }: { onViewAll: () => void }) => {
-  const preview = ALL_IMAGES.slice(0, 6);
+  const preview = ALL_IMAGES.slice(0, 5);
 
   return (
     <section id="gallery" className="py-24 bg-zinc-950">
