@@ -332,6 +332,11 @@ const Gallery = () => {
     { url: "/gallery-hopper.png", title: "Industrial Hopper Fabrication" },
     { url: "/gallery-bracket.png", title: "Custom Bracket & Pipe Work" },
     { url: "/gallery-welder.png", title: "Precision Welding in Action" },
+    { url: "/gallery-pipe-fitting.jpg", title: "Precision Pipe Fitting" },
+    { url: "/gallery-railing.png", title: "Custom Steel Railing" },
+    { url: "/gallery-frame-repair.png", title: "Heavy Frame Repair" },
+    { url: "/gallery-gate.png", title: "Heavy-Duty Gate Fabrication" },
+    { url: "/gallery-storage-unit.jpg", title: "Custom Storage Unit Build" },
   ];
 
   return (
