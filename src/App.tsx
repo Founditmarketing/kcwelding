@@ -26,7 +26,7 @@ import { motion, AnimatePresence } from 'motion/react';
 
 // --- Components ---
 
-const Navbar = () => {
+const Navbar = ({ onNavigate }: { onNavigate: (page: string) => void }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -36,11 +36,25 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleHome = (e: React.MouseEvent) => {
+    e.preventDefault();
+    onNavigate('home');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setIsOpen(false);
+  };
+
+  const handleGallery = (e: React.MouseEvent) => {
+    e.preventDefault();
+    onNavigate('gallery');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setIsOpen(false);
+  };
+
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-zinc-950/95 backdrop-blur-md border-b border-zinc-800 py-3' : 'bg-transparent py-5'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
-          <div className="flex items-center">
+          <div className="flex items-center cursor-pointer" onClick={handleHome}>
             <div className="bg-white rounded-full p-1 flex items-center justify-center shadow-xl border-2 border-zinc-950/5 transition-all duration-300">
               <img
                 src="/Black-Red-Minimalist-Welding-Man-Logo-T2.png"
@@ -53,7 +67,7 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-8 pb-2">
             <a href="#services" className="text-sm font-medium text-zinc-300 hover:text-brand-green transition-colors uppercase tracking-widest">Services</a>
             <a href="#authority" className="text-sm font-medium text-zinc-300 hover:text-brand-green transition-colors uppercase tracking-widest">Authority</a>
-            <a href="#gallery" className="text-sm font-medium text-zinc-300 hover:text-brand-green transition-colors uppercase tracking-widest">Gallery</a>
+            <a href="#gallery" onClick={handleGallery} className="text-sm font-medium text-zinc-300 hover:text-brand-green transition-colors uppercase tracking-widest">Gallery</a>
             <a href="#contact" className="bg-brand-green hover:bg-brand-green-dark text-white px-6 py-2 rounded-sm text-sm font-bold uppercase tracking-widest transition-all">
               Dispatch Emergency Repair
             </a>
@@ -79,7 +93,7 @@ const Navbar = () => {
             <div className="px-4 pt-2 pb-6 space-y-4">
               <a href="#services" onClick={() => setIsOpen(false)} className="block text-lg font-medium text-zinc-300 py-2">Services</a>
               <a href="#authority" onClick={() => setIsOpen(false)} className="block text-lg font-medium text-zinc-300 py-2">Authority</a>
-              <a href="#gallery" onClick={() => setIsOpen(false)} className="block text-lg font-medium text-zinc-300 py-2">Gallery</a>
+              <a href="#gallery" onClick={handleGallery} className="block text-lg font-medium text-zinc-300 py-2">Gallery</a>
               <a href="#contact" onClick={() => setIsOpen(false)} className="block bg-brand-green text-white px-6 py-3 rounded-sm text-center font-bold uppercase tracking-widest">
                 Dispatch Emergency Repair
               </a>
@@ -128,7 +142,7 @@ const Hero = () => {
             When failure is not an option. We provide X-ray quality welds for heavy equipment, industrial infrastructure, and high-liability commercial projects.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-4 mb-8">
             <button className="bg-brand-green hover:bg-brand-green-dark text-white px-8 py-4 rounded-sm text-lg font-bold uppercase tracking-widest transition-all flex items-center justify-center group">
               Request a Project Consultation
               <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
@@ -325,24 +339,26 @@ const Authority = () => {
   );
 };
 
-const Gallery = () => {
-  const images = [
-    { url: "/gallery-construction.png", title: "Structural Framing Project" },
-    { url: "/gallery-stove.png", title: "Custom Wood-Burning Furnace" },
-    { url: "/gallery-hopper.png", title: "Industrial Hopper Fabrication" },
-    { url: "/gallery-bracket.png", title: "Custom Bracket & Pipe Work" },
-    { url: "/gallery-welder.png", title: "Precision Welding in Action" },
-    { url: "/gallery-pipe-fitting.jpg", title: "Precision Pipe Fitting" },
-    { url: "/gallery-railing.png", title: "Custom Steel Railing" },
-    { url: "/gallery-frame-repair.png", title: "Heavy Frame Repair" },
-    { url: "/gallery-gate.png", title: "Heavy-Duty Gate Fabrication" },
-    { url: "/gallery-storage-unit.jpg", title: "Custom Storage Unit Build" },
-    { url: "/gallery-flange.jpg", title: "Flange & Pipe Assembly" },
-    { url: "/gallery-slats.png", title: "Steel Slat Panel Fabrication" },
-    { url: "/gallery-layout.png", title: "Precision Metal Layout" },
-    { url: "/gallery-trailer.png", title: "Trailer Frame Build" },
-    { url: "/gallery-underframe.png", title: "Heavy Equipment Underframe" },
-  ];
+const ALL_IMAGES = [
+  { url: "/gallery-construction.png", title: "Structural Framing Project" },
+  { url: "/gallery-stove.png", title: "Custom Wood-Burning Furnace" },
+  { url: "/gallery-hopper.png", title: "Industrial Hopper Fabrication" },
+  { url: "/gallery-bracket.png", title: "Custom Bracket & Pipe Work" },
+  { url: "/gallery-welder.png", title: "Precision Welding in Action" },
+  { url: "/gallery-pipe-fitting.jpg", title: "Precision Pipe Fitting" },
+  { url: "/gallery-railing.png", title: "Custom Steel Railing" },
+  { url: "/gallery-frame-repair.png", title: "Heavy Frame Repair" },
+  { url: "/gallery-gate.png", title: "Heavy-Duty Gate Fabrication" },
+  { url: "/gallery-storage-unit.jpg", title: "Custom Storage Unit Build" },
+  { url: "/gallery-flange.jpg", title: "Flange & Pipe Assembly" },
+  { url: "/gallery-slats.png", title: "Steel Slat Panel Fabrication" },
+  { url: "/gallery-layout.png", title: "Precision Metal Layout" },
+  { url: "/gallery-trailer.png", title: "Trailer Frame Build" },
+  { url: "/gallery-underframe.png", title: "Heavy Equipment Underframe" },
+];
+
+const Gallery = ({ onViewAll }: { onViewAll: () => void }) => {
+  const preview = ALL_IMAGES.slice(0, 6);
 
   return (
     <section id="gallery" className="py-24 bg-zinc-950">
@@ -353,12 +369,12 @@ const Gallery = () => {
             <p className="text-zinc-500 uppercase tracking-widest text-sm font-bold">Real-time "Biggest and Baddest" Job Photos</p>
           </div>
           <div className="bg-zinc-900 border border-zinc-800 p-4 text-xs text-zinc-400 max-w-xs">
-            <p>Our gallery is updated weekly via our Shared Content Folder strategy, showcasing the scale and complexity of our recent industrial projects.</p>
+            <p>Our gallery is updated weekly, showcasing the scale and complexity of our recent industrial projects.</p>
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {images.map((img, i) => (
+          {preview.map((img, i) => (
             <div key={i} className="group relative overflow-hidden aspect-[4/3] bg-zinc-900 border border-zinc-800">
               <img
                 src={img.url}
@@ -372,8 +388,73 @@ const Gallery = () => {
             </div>
           ))}
         </div>
+
+        <div className="mt-12 text-center">
+          <button
+            onClick={onViewAll}
+            className="inline-flex items-center gap-3 bg-brand-green hover:bg-brand-green-dark text-white px-10 py-4 rounded-sm text-sm font-black uppercase tracking-widest transition-all group"
+          >
+            View Full Gallery ({ALL_IMAGES.length} Photos)
+            <ArrowRight className="group-hover:translate-x-1 transition-transform" size={18} />
+          </button>
+        </div>
       </div>
     </section>
+  );
+};
+
+const GalleryPage = ({ onBack }: { onBack: () => void }) => {
+  return (
+    <div className="min-h-screen bg-zinc-950 pt-40 pb-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="mb-12">
+          <button
+            onClick={onBack}
+            className="inline-flex items-center gap-2 text-zinc-400 hover:text-brand-green transition-colors text-sm font-bold uppercase tracking-widest mb-8 group"
+          >
+            <ChevronRight className="rotate-180 group-hover:-translate-x-1 transition-transform" size={16} />
+            Back to Home
+          </button>
+          <h1 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter mb-4">Full Project Gallery</h1>
+          <div className="h-1 w-24 bg-brand-green mb-4" />
+          <p className="text-zinc-500 uppercase tracking-widest text-sm font-bold">{ALL_IMAGES.length} Real-World KC Welding Projects</p>
+        </div>
+
+        {/* Full grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {ALL_IMAGES.map((img, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: i * 0.05 }}
+              className="group relative overflow-hidden aspect-[4/3] bg-zinc-900 border border-zinc-800"
+            >
+              <img
+                src={img.url}
+                alt={img.title}
+                className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+                referrerPolicy="no-referrer"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                <span className="text-white font-bold uppercase tracking-widest text-sm">{img.title}</span>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="mt-16 text-center">
+          <button
+            onClick={onBack}
+            className="inline-flex items-center gap-2 border border-zinc-700 hover:border-brand-green text-zinc-300 hover:text-brand-green px-8 py-4 rounded-sm text-sm font-bold uppercase tracking-widest transition-all group"
+          >
+            <ChevronRight className="rotate-180 group-hover:-translate-x-1 transition-transform" size={16} />
+            Back to Home
+          </button>
+        </div>
+      </div>
+    </div>
   );
 };
 
@@ -489,18 +570,32 @@ const Footer = () => {
 };
 
 export default function App() {
+  const [page, setPage] = useState<'home' | 'gallery'>('home');
+
+  const goGallery = () => { setPage('gallery'); window.scrollTo({ top: 0 }); };
+  const goHome = () => { setPage('home'); window.scrollTo({ top: 0 }); };
+
   return (
     <div className="min-h-screen bg-zinc-950 font-sans selection:bg-brand-green selection:text-white">
-      <Navbar />
-      <main>
-        <Hero />
-        <DeterrenceSection />
-        <Services />
-        <Authority />
-        <Gallery />
-        <Contact />
-      </main>
-      <Footer />
+      <Navbar onNavigate={(p) => p === 'gallery' ? goGallery() : goHome()} />
+      {page === 'gallery' ? (
+        <>
+          <GalleryPage onBack={goHome} />
+          <Footer />
+        </>
+      ) : (
+        <>
+          <main>
+            <Hero />
+            <DeterrenceSection />
+            <Services />
+            <Authority />
+            <Gallery onViewAll={goGallery} />
+            <Contact />
+          </main>
+          <Footer />
+        </>
+      )}
     </div>
   );
 }
