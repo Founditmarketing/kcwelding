@@ -50,6 +50,20 @@ const Navbar = ({ onNavigate }: { onNavigate: (page: string) => void }) => {
     setIsOpen(false);
   };
 
+  const handleServices = (e: React.MouseEvent) => {
+    e.preventDefault();
+    onNavigate('services');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setIsOpen(false);
+  };
+
+  const handleAbout = (e: React.MouseEvent) => {
+    e.preventDefault();
+    onNavigate('about');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setIsOpen(false);
+  };
+
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-zinc-950/95 backdrop-blur-md border-b border-zinc-800 py-3' : 'bg-transparent py-5'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -65,8 +79,8 @@ const Navbar = ({ onNavigate }: { onNavigate: (page: string) => void }) => {
           </div>
 
           <div className="hidden md:flex items-center space-x-8 pb-2">
-            <a href="#services" className="text-sm font-medium text-zinc-300 hover:text-brand-green transition-colors uppercase tracking-widest">Services</a>
-            <a href="#authority" className="text-sm font-medium text-zinc-300 hover:text-brand-green transition-colors uppercase tracking-widest">Authority</a>
+            <a href="#services" onClick={handleServices} className="text-sm font-medium text-zinc-300 hover:text-brand-green transition-colors uppercase tracking-widest">Services</a>
+            <a href="#" onClick={handleAbout} className="text-sm font-medium text-zinc-300 hover:text-brand-green transition-colors uppercase tracking-widest">About</a>
             <a href="#gallery" onClick={handleGallery} className="text-sm font-medium text-zinc-300 hover:text-brand-green transition-colors uppercase tracking-widest">Gallery</a>
             <a href="#contact" className="bg-brand-green hover:bg-brand-green-dark text-white px-6 py-2 rounded-sm text-sm font-bold uppercase tracking-widest transition-all">
               Dispatch Emergency Repair
@@ -91,8 +105,8 @@ const Navbar = ({ onNavigate }: { onNavigate: (page: string) => void }) => {
             className="md:hidden bg-zinc-900 border-b border-zinc-800 overflow-hidden"
           >
             <div className="px-4 pt-2 pb-6 space-y-4">
-              <a href="#services" onClick={() => setIsOpen(false)} className="block text-lg font-medium text-zinc-300 py-2">Services</a>
-              <a href="#authority" onClick={() => setIsOpen(false)} className="block text-lg font-medium text-zinc-300 py-2">Authority</a>
+              <a href="#services" onClick={handleServices} className="block text-lg font-medium text-zinc-300 py-2">Services</a>
+              <a href="#" onClick={handleAbout} className="block text-lg font-medium text-zinc-300 py-2">About</a>
               <a href="#gallery" onClick={handleGallery} className="block text-lg font-medium text-zinc-300 py-2">Gallery</a>
               <a href="#contact" onClick={() => setIsOpen(false)} className="block bg-brand-green text-white px-6 py-3 rounded-sm text-center font-bold uppercase tracking-widest">
                 Dispatch Emergency Repair
@@ -569,20 +583,196 @@ const Footer = () => {
   );
 };
 
-export default function App() {
-  const [page, setPage] = useState<'home' | 'gallery'>('home');
+const ServicesPage = ({ onBack }: { onBack: () => void }) => {
+  const services = [
+    {
+      title: "Heavy Equipment & Fleet Repair",
+      description: "Comprehensive structural repair for excavators, semi-trucks, cranes, and railroad cars. We specialize in crack repair on high-stress points and chassis reinforcement. Whether it's a hairline fracture in a boom arm or a compromised frame rail on a semi, we restore structural integrity to manufacturer spec or better.",
+      icon: <Truck size={48} />,
+      keywords: ["Excavators", "Cranes", "Railroad Cars", "Semi-Trucks", "Chassis Repair", "Boom Arms"],
+      details: ["MIG, TIG & Stick welding on all alloys", "High-tensile crack repair", "Chassis reinforcement & gusset plating", "AWS Certified structural welds"]
+    },
+    {
+      title: "Industrial Fabrication",
+      description: "High-liability builds designed from the ground up to meet or exceed engineering specifications. From custom 25-foot drone-spraying towers to stress-tested industrial brackets, hoppers, gates, and enclosures — we build what other shops won't attempt. Every fabrication is stress-tested before delivery.",
+      icon: <Factory size={48} />,
+      keywords: ["Drone Towers", "Custom Brackets", "Hoppers", "Gates", "Enclosures", "Steel Fabrication"],
+      details: ["Custom structural fabrication", "Engineering-spec builds", "Full stress-testing protocols", "Agricultural & industrial equipment"]
+    },
+    {
+      title: "Mobile Emergency Welding",
+      description: "When your equipment breaks down in the field, every hour of downtime costs money. Our fully equipped mobile welding units are dispatched 24/7 to bring AWS Certified, shop-quality precision directly to your site — minimizing downtime and getting your operation back up fast.",
+      icon: <Zap size={48} />,
+      keywords: ["24/7 Dispatch", "Onsite Welding", "Downtime Reduction", "Field Repair"],
+      details: ["24/7 emergency dispatch", "Fully equipped mobile units", "AWS Certified onsite repairs", "Same quality as shop work"]
+    },
+    {
+      title: "Structural Steel & Infrastructure",
+      description: "Railings, staircases, support structures, and load-bearing steel fabricated and installed to spec. We work with construction firms, agricultural operators, and energy companies to deliver reliable infrastructure built for real-world stress.",
+      icon: <Hammer size={48} />,
+      keywords: ["Railings", "Staircases", "Load-Bearing Steel", "Infrastructure"],
+      details: ["Custom railing systems", "Load-bearing structural steel", "On-site installation", "Code-compliant builds"]
+    },
+  ];
 
-  const goGallery = () => { setPage('gallery'); window.scrollTo({ top: 0 }); };
-  const goHome = () => { setPage('home'); window.scrollTo({ top: 0 }); };
+  return (
+    <div className="min-h-screen bg-zinc-950 pt-40 pb-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <button onClick={onBack} className="inline-flex items-center gap-2 text-zinc-400 hover:text-brand-green transition-colors text-sm font-bold uppercase tracking-widest mb-10 group">
+          <ChevronRight className="rotate-180 group-hover:-translate-x-1 transition-transform" size={16} />
+          Back to Home
+        </button>
+
+        <div className="mb-16">
+          <h1 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter mb-4">Our Services</h1>
+          <div className="h-1 w-24 bg-brand-green mb-6" />
+          <p className="text-xl text-zinc-400 max-w-2xl leading-relaxed">
+            High-stakes industrial welding where failure is never an option. Every service is backed by AWS Certification and a zero-failure track record.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8 mb-20">
+          {services.map((service, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: i * 0.1 }}
+              className="bg-zinc-900 border border-zinc-800 p-10 flex flex-col hover:border-brand-green/40 transition-colors"
+            >
+              <div className="text-brand-green mb-6">{service.icon}</div>
+              <h2 className="text-2xl font-black text-white uppercase tracking-tight mb-4">{service.title}</h2>
+              <p className="text-zinc-400 leading-relaxed mb-8 flex-grow">{service.description}</p>
+              <ul className="space-y-2 mb-8">
+                {service.details.map((d, j) => (
+                  <li key={j} className="flex items-center gap-3 text-zinc-300 text-sm font-medium">
+                    <ShieldCheck size={14} className="text-brand-green shrink-0" />
+                    {d}
+                  </li>
+                ))}
+              </ul>
+              <div className="flex flex-wrap gap-2">
+                {service.keywords.map((kw, j) => (
+                  <span key={j} className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 border border-zinc-800 px-2 py-1">{kw}</span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="bg-brand-green p-12 text-center">
+          <h2 className="text-3xl md:text-4xl font-black text-white uppercase tracking-tighter mb-4">Ready to Get Started?</h2>
+          <p className="text-zinc-100 mb-8 text-lg">Contact us for a project consultation or emergency dispatch.</p>
+          <button onClick={onBack} className="bg-zinc-950 hover:bg-zinc-900 text-white px-10 py-4 font-black uppercase tracking-widest transition-all inline-flex items-center gap-3 group">
+            Get in Touch
+            <ArrowRight className="group-hover:translate-x-1 transition-transform" size={18} />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const AboutPage = ({ onBack }: { onBack: () => void }) => {
+  const stats = [
+    { value: "10+", label: "Years Experience" },
+    { value: "100%", label: "X-Ray Pass Rate" },
+    { value: "ZERO", label: "Field Failures" },
+    { value: "24/7", label: "Emergency Dispatch" },
+  ];
+
+  return (
+    <div className="min-h-screen bg-zinc-950 pt-40 pb-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <button onClick={onBack} className="inline-flex items-center gap-2 text-zinc-400 hover:text-brand-green transition-colors text-sm font-bold uppercase tracking-widest mb-10 group">
+          <ChevronRight className="rotate-180 group-hover:-translate-x-1 transition-transform" size={16} />
+          Back to Home
+        </button>
+
+        <div className="grid lg:grid-cols-2 gap-16 items-start mb-24">
+          <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }}>
+            <h1 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter mb-4">
+              About <span className="text-brand-green">KC Welding</span>
+            </h1>
+            <div className="h-1 w-24 bg-brand-green mb-8" />
+            <div className="space-y-6 text-lg text-zinc-400 leading-relaxed">
+              <p>
+                KC Welding is a professional industrial welding and fabrication company built on one principle: <span className="text-white font-semibold">failure is not an option.</span> We serve fleet managers, engineers, construction firms, agricultural operators, and industrial facilities who demand perfection on every weld.
+              </p>
+              <p className="border-l-4 border-brand-green pl-6 italic text-zinc-300">
+                "We are frequently hired to fix other shops' mistakes. In our world, a failed weld isn't just an inconvenience — it's a massive liability. We ensure it's done right the first time."
+              </p>
+              <p>
+                Our owner is an AWS Certified Welder with a 10-year track record of X-ray-tested welds with zero failures in the field. We don't do residential hobbyist work. We don't cut corners. We build and repair structures that have to hold — no matter what.
+              </p>
+              <p>
+                From mobile emergency dispatch to complex industrial fabrication, KC Welding brings a level of precision, accountability, and craftsmanship that sets us apart from every other shop in the region.
+              </p>
+            </div>
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.1 }}>
+            <div className="grid grid-cols-2 gap-4">
+              {stats.map((stat, i) => (
+                <div key={i} className="aspect-square bg-zinc-900 border border-zinc-800 flex flex-col items-center justify-center text-center p-8 hover:border-brand-green/40 transition-colors">
+                  <span className="text-brand-green font-black text-4xl mb-2">{stat.value}</span>
+                  <span className="text-zinc-500 text-[10px] uppercase tracking-widest font-bold">{stat.label}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+
+        <div className="mb-20">
+          <h2 className="text-3xl font-black text-white uppercase tracking-tighter mb-2">What We Stand For</h2>
+          <div className="h-1 w-16 bg-brand-green mb-10" />
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { icon: <ShieldCheck size={32} />, title: "Zero Tolerance for Failure", body: "Every weld we make is built to last. We don't sign off on anything we wouldn't stake our reputation — and our clients' safety — on." },
+              { icon: <Award size={32} />, title: "AWS Certified Excellence", body: "Our welder holds AWS Certification and maintains a 100% X-ray pass rate across a decade of industrial projects." },
+              { icon: <Clock size={32} />, title: "24/7 Emergency Response", body: "Downtime is money. We dispatch mobile units around the clock so your operation gets back up as fast as possible." },
+            ].map((val, i) => (
+              <div key={i} className="bg-zinc-900 border border-zinc-800 p-8">
+                <div className="text-brand-green mb-4">{val.icon}</div>
+                <h3 className="text-lg font-black text-white uppercase tracking-tight mb-3">{val.title}</h3>
+                <p className="text-zinc-400 leading-relaxed text-sm">{val.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="bg-zinc-900 border border-zinc-800 p-12">
+          <h2 className="text-2xl font-black text-white uppercase tracking-tighter mb-6">Who We Serve</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {["Railroad Companies", "Fleet Managers", "Agricultural Ops", "Construction Firms", "Mining Facilities", "Energy Infrastructure"].map((target, i) => (
+              <div key={i} className="bg-zinc-950 border border-zinc-800 p-4 text-sm text-zinc-300 font-bold uppercase tracking-wider flex items-center gap-3">
+                <ShieldCheck size={14} className="text-brand-green shrink-0" />
+                {target}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default function App() {
+
+  const [page, setPage] = useState<'home' | 'gallery' | 'services' | 'about'>('home');
+
+  const navigate = (p: string) => { setPage(p as any); window.scrollTo({ top: 0 }); };
+  const goHome = () => navigate('home');
 
   return (
     <div className="min-h-screen bg-zinc-950 font-sans selection:bg-brand-green selection:text-white">
-      <Navbar onNavigate={(p) => p === 'gallery' ? goGallery() : goHome()} />
+      <Navbar onNavigate={navigate} />
       {page === 'gallery' ? (
-        <>
-          <GalleryPage onBack={goHome} />
-          <Footer />
-        </>
+        <><GalleryPage onBack={goHome} /><Footer /></>
+      ) : page === 'services' ? (
+        <><ServicesPage onBack={goHome} /><Footer /></>
+      ) : page === 'about' ? (
+        <><AboutPage onBack={goHome} /><Footer /></>
       ) : (
         <>
           <main>
@@ -590,7 +780,7 @@ export default function App() {
             <DeterrenceSection />
             <Services />
             <Authority />
-            <Gallery onViewAll={goGallery} />
+            <Gallery onViewAll={() => navigate('gallery')} />
             <Contact />
           </main>
           <Footer />
