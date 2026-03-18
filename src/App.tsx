@@ -337,6 +337,11 @@ const Gallery = () => {
     { url: "/gallery-frame-repair.png", title: "Heavy Frame Repair" },
     { url: "/gallery-gate.png", title: "Heavy-Duty Gate Fabrication" },
     { url: "/gallery-storage-unit.jpg", title: "Custom Storage Unit Build" },
+    { url: "/gallery-flange.jpg", title: "Flange & Pipe Assembly" },
+    { url: "/gallery-slats.png", title: "Steel Slat Panel Fabrication" },
+    { url: "/gallery-layout.png", title: "Precision Metal Layout" },
+    { url: "/gallery-trailer.png", title: "Trailer Frame Build" },
+    { url: "/gallery-underframe.png", title: "Heavy Equipment Underframe" },
   ];
 
   return (
