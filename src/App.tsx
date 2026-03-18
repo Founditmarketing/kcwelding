@@ -327,12 +327,11 @@ const Authority = () => {
 
 const Gallery = () => {
   const images = [
-    { url: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80&w=800", title: "High-Tensile Steel Weld" },
-    { url: "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&q=80&w=800", title: "Industrial Welding" },
-    { url: "https://images.unsplash.com/photo-1530482817083-29ae4b92ff15?auto=format&fit=crop&q=80&w=800", title: "Heavy Equipment Repair" },
-    { url: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800", title: "Industrial Tower Build" },
-    { url: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&q=80&w=800", title: "Precision Fabrication" },
-    { url: "https://images.unsplash.com/photo-1615811361523-6bd03d7748e7?auto=format&fit=crop&q=80&w=800", title: "Mobile Site Repair" }
+    { url: "/gallery-construction.png", title: "Structural Framing Project" },
+    { url: "/gallery-stove.png", title: "Custom Wood-Burning Furnace" },
+    { url: "/gallery-hopper.png", title: "Industrial Hopper Fabrication" },
+    { url: "/gallery-bracket.png", title: "Custom Bracket & Pipe Work" },
+    { url: "/gallery-welder.png", title: "Precision Welding in Action" },
   ];
 
   return (
