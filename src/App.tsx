@@ -41,16 +41,16 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
-            <div className="bg-white rounded-full p-1 flex items-center justify-center shadow-xl border-2 border-zinc-950/5">
+            <div className="bg-white rounded-full p-1 flex items-center justify-center shadow-xl border-2 border-zinc-950/5 transition-all duration-300">
               <img
                 src="/Black-Red-Minimalist-Welding-Man-Logo-T2.png"
                 alt="KC Welding Logo"
-                className="h-36 w-36 object-contain"
+                className={`object-contain transition-all duration-300 ${scrolled ? 'h-16 w-16' : 'h-36 w-36'}`}
               />
             </div>
           </div>
 
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-8 pb-2">
             <a href="#services" className="text-sm font-medium text-zinc-300 hover:text-brand-green transition-colors uppercase tracking-widest">Services</a>
             <a href="#authority" className="text-sm font-medium text-zinc-300 hover:text-brand-green transition-colors uppercase tracking-widest">Authority</a>
             <a href="#gallery" className="text-sm font-medium text-zinc-300 hover:text-brand-green transition-colors uppercase tracking-widest">Gallery</a>
@@ -99,10 +99,10 @@ const Hero = () => {
         <img
           src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80&w=2070"
           alt="Industrial Welding Sparks"
-          className="w-full h-full object-cover opacity-30 grayscale"
+          className="w-full h-full object-cover opacity-50"
           referrerPolicy="no-referrer"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/80 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/70 to-transparent"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
@@ -327,12 +327,12 @@ const Authority = () => {
 
 const Gallery = () => {
   const images = [
-    { url: "https://images.unsplash.com/photo-1535813548-6671f68c965f?auto=format&fit=crop&q=80&w=800", title: "Heavy Excavator Repair" },
-    { url: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800", title: "Industrial Tower Build" },
     { url: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80&w=800", title: "High-Tensile Steel Weld" },
-    { url: "https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&q=80&w=800", title: "Precision Fabrication" },
-    { url: "https://images.unsplash.com/photo-1534398079543-7ae6d016b86a?auto=format&fit=crop&q=80&w=800", title: "Mobile Site Repair" },
-    { url: "https://images.unsplash.com/photo-1531988041570-6da903433662?auto=format&fit=crop&q=80&w=800", title: "Fleet Maintenance" }
+    { url: "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&q=80&w=800", title: "Industrial Welding" },
+    { url: "https://images.unsplash.com/photo-1530482817083-29ae4b92ff15?auto=format&fit=crop&q=80&w=800", title: "Heavy Equipment Repair" },
+    { url: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800", title: "Industrial Tower Build" },
+    { url: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&q=80&w=800", title: "Precision Fabrication" },
+    { url: "https://images.unsplash.com/photo-1615811361523-6bd03d7748e7?auto=format&fit=crop&q=80&w=800", title: "Mobile Site Repair" }
   ];
 
   return (
@@ -354,7 +354,7 @@ const Gallery = () => {
               <img
                 src={img.url}
                 alt={img.title}
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
+                className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
@@ -468,11 +468,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="flex space-x-8">
-            <a href="#" className="text-zinc-500 hover:text-white transition-colors text-xs uppercase tracking-widest font-bold">Privacy Policy</a>
-            <a href="#" className="text-zinc-500 hover:text-white transition-colors text-xs uppercase tracking-widest font-bold">Terms of Service</a>
-            <a href="#" className="text-zinc-500 hover:text-white transition-colors text-xs uppercase tracking-widest font-bold">Liability Coverage</a>
-          </div>
+
 
           <div className="text-zinc-600 text-[10px] uppercase tracking-widest font-bold">
             © {new Date().getFullYear()} KC Welding. All Rights Reserved. AWS Certified.
