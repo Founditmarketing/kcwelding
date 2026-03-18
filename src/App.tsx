@@ -133,7 +133,7 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/70 to-transparent"></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-52">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
@@ -419,7 +419,7 @@ const Gallery = ({ onViewAll }: { onViewAll: () => void }) => {
 
 const GalleryPage = ({ onBack }: { onBack: () => void }) => {
   return (
-    <div className="min-h-screen bg-zinc-950 pt-40 pb-24">
+    <div className="min-h-screen bg-zinc-950 pt-52 pb-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-12">
@@ -616,7 +616,7 @@ const ServicesPage = ({ onBack }: { onBack: () => void }) => {
   ];
 
   return (
-    <div className="min-h-screen bg-zinc-950 pt-40 pb-24">
+    <div className="min-h-screen bg-zinc-950 pt-52 pb-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <button onClick={onBack} className="inline-flex items-center gap-2 text-zinc-400 hover:text-brand-green transition-colors text-sm font-bold uppercase tracking-widest mb-10 group">
           <ChevronRight className="rotate-180 group-hover:-translate-x-1 transition-transform" size={16} />
@@ -682,7 +682,7 @@ const AboutPage = ({ onBack }: { onBack: () => void }) => {
   ];
 
   return (
-    <div className="min-h-screen bg-zinc-950 pt-40 pb-24">
+    <div className="min-h-screen bg-zinc-950 pt-52 pb-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <button onClick={onBack} className="inline-flex items-center gap-2 text-zinc-400 hover:text-brand-green transition-colors text-sm font-bold uppercase tracking-widest mb-10 group">
           <ChevronRight className="rotate-180 group-hover:-translate-x-1 transition-transform" size={16} />
