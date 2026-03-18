@@ -387,15 +387,15 @@ const Gallery = ({ onViewAll }: { onViewAll: () => void }) => {
               </div>
             </div>
           ))}
-        </div>
 
-        <div className="mt-12 text-center">
+          {/* 6th tile — View Full Gallery */}
           <button
             onClick={onViewAll}
-            className="inline-flex items-center gap-3 bg-brand-green hover:bg-brand-green-dark text-white px-10 py-4 rounded-sm text-sm font-black uppercase tracking-widest transition-all group"
+            className="group relative overflow-hidden aspect-[4/3] bg-zinc-900 border border-zinc-800 flex flex-col items-center justify-center gap-4 hover:border-brand-green transition-all duration-300"
           >
-            View Full Gallery ({ALL_IMAGES.length} Photos)
-            <ArrowRight className="group-hover:translate-x-1 transition-transform" size={18} />
+            <div className="absolute inset-0 bg-brand-green/0 group-hover:bg-brand-green/10 transition-all duration-300" />
+            <ArrowRight className="text-brand-green group-hover:translate-x-1 transition-transform duration-300" size={36} />
+            <span className="text-white font-black uppercase tracking-widest text-sm relative z-10">View Full Gallery</span>
           </button>
         </div>
       </div>
