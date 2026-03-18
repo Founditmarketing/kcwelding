@@ -130,7 +130,7 @@ const Navbar = ({ onNavigate }: { onNavigate: (page: string) => void }) => {
 
 const Hero = () => {
   return (
-    <section className="relative h-screen flex items-center overflow-hidden bg-zinc-950">
+    <section className="relative h-screen overflow-hidden bg-zinc-950">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
@@ -142,7 +142,7 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/70 to-transparent"></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-44">
+      <div className="relative z-10 h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center pt-48 pb-32">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
