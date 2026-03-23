@@ -36,7 +36,7 @@ export const Home: React.FC = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-lg"
+            className="max-w-xl"
           >
             <span className="text-brand-green-light font-display tracking-[0.3em] uppercase mb-4 block">
               AWS-Certified Industrial Welding — When Failure Is Not An Option
