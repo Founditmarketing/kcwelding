@@ -1,0 +1,90 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Archivo+Black&family=Barlow+Condensed:wght@400;500;600;700&family=Exo+2:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@theme {
+  --font-display: "Archivo Black", sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* OG Brand Greens (primary) */
+  --color-brand-green: #4A6741;
+  --color-brand-green-dark: #3A5233;
+  --color-brand-green-light: #5A7D4F;
+
+  /* Legacy orange (kept as secondary accent) */
+  --color-forge-orange: #FF4500;
+  --color-ember-glow: #FF6B35;
+  --color-forge-red: #E63900;
+  --color-white-hot: #FFB347;
+  --color-spark: #FF8C42;
+  
+  /* Dark base palette */
+  --color-iron-black: #09090b;
+  --color-deep-iron: #18181b;
+  --color-cooled-steel: #27272a;
+  --color-brushed-metal: #3f3f46;
+  --color-weathered-iron: #52525b;
+  --color-light-steel: #a1a1aa;
+  --color-polished-edge: #d4d4d8;
+
+  --color-arc-blue: #1E90FF;
+  --color-torch-blue: #00BFFF;
+  --color-flame-core: #4169E1;
+  --color-arc-flash: #87CEEB;
+
+  --color-rust: #2F1810;
+  --color-patina: #4A3728;
+  --color-scorched: #1C1410;
+}
+
+@layer base {
+  body {
+    @apply bg-iron-black text-light-steel font-body antialiased selection:bg-brand-green selection:text-white;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display uppercase tracking-tighter text-white;
+  }
+}
+
+@layer utilities {
+  .metal-gradient {
+    background: linear-gradient(135deg, #18181b 0%, #27272a 50%, #18181b 100%);
+    background-size: 200% 200%;
+  }
+
+  .forge-glow {
+    box-shadow: 0 0 20px rgba(74, 103, 65, 0.4);
+  }
+
+  .arc-glow {
+    box-shadow: 0 0 20px rgba(30, 144, 255, 0.3);
+  }
+
+  .green-glow {
+    box-shadow: 0 0 24px rgba(74, 103, 65, 0.5);
+  }
+
+  .rivet {
+    @apply w-2 h-2 rounded-full bg-weathered-iron shadow-inner;
+  }
+
+  .diamond-plate {
+    background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.04) 1px, transparent 0);
+    background-size: 16px 16px;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-iron-black;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-weathered-iron rounded-full hover:bg-brand-green transition-colors;
+}
