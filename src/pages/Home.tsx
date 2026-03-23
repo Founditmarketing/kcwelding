@@ -18,11 +18,10 @@ export const Home: React.FC = () => {
           {/* Green-flame filter: hue-rotate shifts blue arc → green */}
           <div className="absolute inset-0 bg-brand-green/20 mix-blend-multiply z-[5]" />
           <img 
-            src="https://kc-welding.com/wp-content/uploads/2024/08/KC-Welding-pt-2-2-scaled.jpeg" 
+            src="/flame-closeup.png" 
             alt="Welding Arc Close-Up" 
             className="w-full h-full object-cover"
             style={{ filter: 'hue-rotate(-120deg) saturate(2) brightness(0.85)' }}
-            referrerPolicy="no-referrer"
           />
         </div>
 

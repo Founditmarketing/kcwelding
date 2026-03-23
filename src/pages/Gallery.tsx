@@ -15,11 +15,10 @@ export const Gallery: React.FC = () => {
           <div className="absolute inset-0 bg-brand-green/20 mix-blend-multiply z-[5]" />
           <div className="absolute inset-0 bg-iron-black/60 z-[6]" />
           <img 
-            src="https://kc-welding.com/wp-content/uploads/2024/08/KC-Welding-4-scaled.jpeg" 
+            src="/flame-wide.png" 
             alt="Gallery Hero — Welding Scene" 
             className="w-full h-full object-cover"
             style={{ filter: 'hue-rotate(-120deg) saturate(1.8) brightness(0.75)' }}
-            referrerPolicy="no-referrer"
           />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
