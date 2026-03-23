@@ -20,7 +20,7 @@ export const Footer: React.FC = () => {
               <span className="font-display text-2xl text-white">KC WELDING</span>
             </Link>
             <p className="text-weathered-iron text-sm leading-relaxed">
-              AWS-certified mobile welding and fabrication. When failure is not an option — every weld built to last, done right the first time.
+              Professional mobile welding and fabrication. Quality over quick fixes — every job done right the first time.
             </p>
             <div className="flex space-x-4">
               <a href={COMPANY_INFO.facebook} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-sm bg-deep-iron border border-weathered-iron flex items-center justify-center hover:border-brand-green hover:text-brand-green-light transition-all">

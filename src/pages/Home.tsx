@@ -43,14 +43,14 @@ export const Home: React.FC = () => {
             className="max-w-2xl"
           >
             <span className="text-brand-green-light font-display tracking-[0.3em] uppercase mb-4 block">
-              AWS-Certified Industrial Welding — When Failure Is Not An Option
+              Professional Mobile Welding & Fabrication — Quality Done Right
             </span>
             <h1 className="text-6xl md:text-8xl mb-6 leading-[0.9]">
               FORGED IN FIRE. <br />
               <span className="text-brand-green-light">BUILT TO LAST.</span>
             </h1>
             <p className="text-xl text-light-steel mb-10 font-body">
-              We provide X-ray quality welds for heavy equipment, industrial infrastructure, and high-liability commercial projects. Quality over quick fixes — every job done right the first time.
+              We provide precision welds for heavy equipment, industrial infrastructure, and commercial projects. Quality over quick fixes — every job done right the first time.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" onClick={() => window.location.href = `tel:${COMPANY_INFO.phone}`}>
@@ -180,9 +180,9 @@ export const Home: React.FC = () => {
           />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             {[
-              { icon: Shield, title: "AWS Certified", text: "Our owner holds AWS Certification with a 10-year track record of X-ray-tested welds and zero failures in the field." },
-              { icon: MapPin, title: "Mobile Dispatch", text: "We come to you. Emergency dispatch available for critical breakdowns — no hauling equipment across town." },
-              { icon: Hammer, title: "Industrial Grade", text: "We don't do residential hobbyist work. Every job is high-stakes, high-liability, and built to hold — no matter what." },
+              { icon: Shield, title: "Quality First", text: "We don't rush jobs or cut corners. Every weld is built to hold — period." },
+              { icon: MapPin, title: "Mobile Dispatch", text: "We come to you. Emergency dispatch available for critical breakdowns anywhere in the region." },
+              { icon: Hammer, title: "Full Capability", text: "MIG, TIG, STICK, FLUX-CORE — every technique, every metal, every time." },
             ].map((item, index) => (
               <div key={index} className="text-center group">
                 <div className="w-20 h-20 bg-deep-iron border border-weathered-iron flex items-center justify-center mx-auto mb-6 transition-all group-hover:border-brand-green group-hover:green-glow">
@@ -239,7 +239,7 @@ export const Home: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <h2 className="text-4xl md:text-6xl mb-8 text-white">MINIMIZE YOUR DOWNTIME NOW.</h2>
           <p className="text-2xl text-white/90 mb-12 font-display uppercase tracking-widest">
-            Whether you need industrial fabrication or emergency dispatch — our AWS Certified team is ready.
+            Whether you need industrial fabrication or emergency dispatch — our experienced team is ready.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-6">
             <a href={`tel:${COMPANY_INFO.phone}`}>

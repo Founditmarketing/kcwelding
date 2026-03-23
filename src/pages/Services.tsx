@@ -54,7 +54,7 @@ export const Services: React.FC = () => {
               <div className="relative">
                 <img src={service.image} alt={service.title} className="w-full h-full object-cover border border-weathered-iron forge-glow" referrerPolicy="no-referrer" />
                 <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-brand-green flex items-center justify-center p-4 text-center">
-                  <span className="font-display text-white text-sm">ZERO FAILURES</span>
+                  <span className="font-display text-white text-sm">QUALITY BUILT</span>
                 </div>
               </div>
             </div>
@@ -75,7 +75,7 @@ export const Services: React.FC = () => {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <h1 className="text-6xl md:text-8xl mb-4">OUR SERVICES</h1>
             <p className="text-xl text-brand-green-light font-display tracking-[0.3em] uppercase">
-              High-Stakes Industrial Welding. Every Service AWS Backed.
+              Professional Mobile Welding. Every Service Delivered Right.
             </p>
           </motion.div>
         </div>
@@ -85,7 +85,7 @@ export const Services: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-20">
             <p className="text-xl text-weathered-iron leading-relaxed">
-              High-stakes industrial welding where failure is never an option. Every service is backed by AWS Certification and a 10-year zero-failure track record. We serve fleet managers, engineers, construction firms, and industrial operators.
+              Industrial and commercial welding where quality is non-negotiable. We serve fleet managers, equipment operators, construction firms, and agricultural businesses throughout Central Louisiana.
             </p>
           </div>
 

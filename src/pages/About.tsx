@@ -25,7 +25,7 @@ export const About: React.FC = () => {
           >
             <h1 className="text-6xl md:text-8xl mb-4">ABOUT US</h1>
             <p className="text-xl text-brand-green-light font-display tracking-[0.3em] uppercase">
-              AWS Certified. Industrial Grade. Failure Is Not An Option.
+              Professional. Industrial Grade. Built to Last.
             </p>
           </motion.div>
         </div>
@@ -46,7 +46,7 @@ export const About: React.FC = () => {
                   KC Welding is a professional industrial welding and fabrication company built on one principle: failure is not an option. We serve fleet managers, engineers, construction firms, agricultural operators, and industrial facilities who demand perfection on every weld.
                 </p>
                 <p>
-                  Our owner is an AWS Certified Welder with a 10-year track record of X-ray-tested welds with zero failures in the field. From mobile emergency dispatch to complex industrial fabrication, we bring precision, accountability, and craftsmanship that sets us apart.
+                  Our owner is an experienced welder with a strong track record across mobile emergency dispatch and complex industrial fabrication. We bring precision, accountability, and craftsmanship that sets us apart.
                 </p>
                 <blockquote className="border-l-4 border-brand-green pl-4 text-brand-green-light italic">
                   "We are frequently hired to fix other shops' mistakes. In our world, a failed weld isn't just an inconvenience — it's a massive liability. We ensure it's done right the first time."
@@ -72,7 +72,7 @@ export const About: React.FC = () => {
           <div className="text-center max-w-3xl mx-auto mb-20">
             <SectionHeading title="WHY WE'RE DIFFERENT" subtitle="The KC Difference" centered />
             <p className="text-lg text-weathered-iron">
-              We don't cut corners. We don't do residential hobbyist work. We build and repair structures that have to hold — no matter what. Every job backed by AWS Certification and a zero-failure track record.
+              We don't cut corners. We don't do residential hobbyist work. We build and repair structures that have to hold — no matter what. Every job backed by real craftsmanship and a commitment to getting it right.
             </p>
           </div>
 
@@ -80,8 +80,8 @@ export const About: React.FC = () => {
             {[
               { icon: Users, title: "Who We Serve", text: "Fleet managers, engineers, construction firms, agricultural operators, and industrial facilities." },
               { icon: MapPin, title: "Mobile Dispatch", text: "We come to you. Emergency dispatch available for critical breakdowns anywhere in the region." },
-              { icon: Hammer, title: "Zero Failures", text: "A 10-year track record of X-ray-tested welds with zero failures in the field." },
-              { icon: Shield, title: "AWS Certified", text: "Every weld is backed by AWS Certification — the gold standard in the welding industry." },
+              { icon: Hammer, title: "Proven Results", text: "A strong track record of durable, reliable welds in demanding real-world conditions." },
+              { icon: Shield, title: "Quality First", text: "We don't rush jobs or cut corners. Every weld is built to hold." },
               { icon: Heart, title: "Industrial Only", text: "We specialize in high-stakes, high-liability projects. No hobbyist or residential work." },
               { icon: Star, title: "Full Capability", text: "MIG, TIG, STICK, FLUX-CORE — every technique, every metal, every time." },
             ].map((item, index) => (
