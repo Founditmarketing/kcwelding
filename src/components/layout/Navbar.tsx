@@ -26,12 +26,12 @@ export const Navbar: React.FC = () => {
             <img 
               src="https://kc-welding.com/wp-content/uploads/2024/08/Black-Red-Minimalist-Welding-Man-Logo-T2.png" 
               alt="KC Welding Logo" 
-              className="h-12 w-auto mr-3 transition-transform group-hover:scale-110"
+              className="h-10 w-auto mr-3 transition-transform group-hover:scale-110"
               referrerPolicy="no-referrer"
             />
             <div className="flex flex-col">
-              <span className="font-display text-2xl leading-none text-white">KC WELDING</span>
-              <span className="text-[10px] tracking-[0.2em] text-brand-green-light uppercase">Industrial Authority</span>
+              <span className="font-display text-xl leading-none text-white">KC WELDING</span>
+              <span className="hidden sm:block text-[10px] tracking-[0.2em] text-brand-green-light uppercase">Industrial Authority</span>
             </div>
           </Link>
 
@@ -62,53 +62,74 @@ export const Navbar: React.FC = () => {
           <div className="md:hidden flex items-center">
             <button 
               onClick={() => setIsOpen(!isOpen)}
-              className="text-white p-2"
+              className="text-white p-2 hover:text-brand-green-light transition-colors"
+              aria-label="Toggle menu"
             >
-              {isOpen ? <X /> : <Menu />}
+              {isOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Drawer */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, x: '100%' }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
-            className="fixed inset-0 z-40 bg-iron-black md:hidden pt-24 px-6"
+            transition={{ type: 'tween', duration: 0.25 }}
+            className="fixed inset-0 z-40 bg-iron-black md:hidden flex flex-col"
           >
-            <div className="flex flex-col space-y-6">
-              {navLinks.map((link) => (
-                <Link
+            {/* Drawer Header */}
+            <div className="flex items-center justify-between px-6 h-20 border-b border-weathered-iron shrink-0">
+              <span className="font-display text-xl text-white">KC WELDING</span>
+              <button onClick={() => setIsOpen(false)} className="text-white hover:text-brand-green-light p-2">
+                <X size={28} />
+              </button>
+            </div>
+
+            {/* Nav Links */}
+            <div className="flex flex-col flex-1 overflow-y-auto px-6 py-8 space-y-2">
+              {navLinks.map((link, i) => (
+                <motion.div
                   key={link.path}
-                  to={link.path}
-                  onClick={() => setIsOpen(false)}
-                  className={cn(
-                    'font-display text-3xl uppercase tracking-tighter',
-                    location.pathname === link.path ? 'text-brand-green-light' : 'text-white'
-                  )}
+                  initial={{ opacity: 0, x: 30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.07 }}
                 >
-                  {link.name}
-                </Link>
+                  <Link
+                    to={link.path}
+                    onClick={() => setIsOpen(false)}
+                    className={cn(
+                      'block font-display text-4xl uppercase tracking-tight py-3 border-b border-weathered-iron/40 transition-colors',
+                      location.pathname === link.path
+                        ? 'text-brand-green-light'
+                        : 'text-white hover:text-brand-green-light'
+                    )}
+                  >
+                    {link.name}
+                  </Link>
+                </motion.div>
               ))}
-              <div className="pt-6 border-t border-weathered-iron">
-                <a 
-                  href={`tel:${COMPANY_INFO.phone}`}
-                  className="flex items-center text-white text-xl font-display mb-4"
-                >
-                  <Phone className="w-6 h-6 mr-3 text-brand-green-light" />
-                  {COMPANY_INFO.phone}
+            </div>
+
+            {/* Drawer Footer */}
+            <div className="px-6 py-8 border-t border-weathered-iron shrink-0 space-y-4">
+              <a
+                href={`tel:${COMPANY_INFO.phone}`}
+                className="flex items-center justify-center w-full bg-brand-green text-white py-4 font-display text-lg tracking-widest hover:bg-brand-green-dark transition-colors green-glow"
+              >
+                <Phone className="w-5 h-5 mr-3" />
+                {COMPANY_INFO.phone}
+              </a>
+              <div className="flex justify-center space-x-8">
+                <a href={COMPANY_INFO.facebook} target="_blank" rel="noreferrer" className="text-weathered-iron hover:text-brand-green-light transition-colors">
+                  <Facebook size={22} />
                 </a>
-                <div className="flex space-x-6">
-                  <a href={COMPANY_INFO.facebook} target="_blank" rel="noreferrer" className="text-white hover:text-brand-green-light">
-                    <Facebook />
-                  </a>
-                  <a href={`mailto:${COMPANY_INFO.email}`} className="text-white hover:text-brand-green-light">
-                    <Mail />
-                  </a>
-                </div>
+                <a href={`mailto:${COMPANY_INFO.email}`} className="text-weathered-iron hover:text-brand-green-light transition-colors">
+                  <Mail size={22} />
+                </a>
               </div>
             </div>
           </motion.div>

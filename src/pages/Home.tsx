@@ -21,6 +21,10 @@ export const Home: React.FC = () => {
           <div className="absolute inset-0 z-10" style={{
             background: 'linear-gradient(to right, rgba(9,9,11,0.92) 0%, rgba(9,9,11,0.75) 30%, transparent 55%)'
           }} />
+          {/* Mobile-only full dark overlay — flame too distracting on small screens */}
+          <div className="absolute inset-0 z-10 md:hidden" style={{
+            background: 'rgba(9,9,11,0.82)'
+          }} />
           {/* Green tint overlay */}
           <div className="absolute inset-0 bg-brand-green/15 mix-blend-multiply z-[5]" />
           <img 
