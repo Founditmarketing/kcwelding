@@ -9,7 +9,7 @@ export const Gallery: React.FC = () => {
 
   return (
     <div className="pt-20">
-      <section className="relative py-32 bg-iron-black overflow-hidden">
+      <section className="relative min-h-[65vh] flex items-center bg-iron-black overflow-hidden">
         <div className="absolute inset-0">
           {/* Green-flame filter: wide welding scene */}
           <div className="absolute inset-0 bg-brand-green/20 mix-blend-multiply z-[5]" />
