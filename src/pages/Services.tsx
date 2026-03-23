@@ -85,7 +85,7 @@ export const Services: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-20">
             <p className="text-xl text-weathered-iron leading-relaxed">
-              Industrial and commercial welding where quality is non-negotiable. We serve fleet managers, equipment operators, construction firms, and agricultural businesses throughout Central Louisiana.
+              High-stakes industrial welding where failure is never an option. Every service backed by AWS Certification and a zero-failure track record.
             </p>
           </div>
 

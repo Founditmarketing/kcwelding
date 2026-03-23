@@ -36,7 +36,7 @@
 
 @layer base {
   body {
-    @apply bg-iron-black text-light-steel font-body antialiased selection:bg-brand-green selection:text-white;
+    @apply bg-zinc-950 text-light-steel font-body antialiased selection:bg-brand-green selection:text-white;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -78,9 +78,9 @@
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-iron-black;
+  @apply bg-zinc-950;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-weathered-iron rounded-full hover:bg-brand-green transition-colors;
+  @apply bg-brand-green rounded-full hover:bg-brand-green-light transition-colors;
 }

@@ -50,7 +50,7 @@ export const Home: React.FC = () => {
               <span className="text-brand-green-light">BUILT TO LAST.</span>
             </h1>
             <p className="text-xl text-light-steel mb-10 font-body">
-              We provide precision welds for heavy equipment, industrial infrastructure, and commercial projects. Quality over quick fixes — every job done right the first time.
+              When failure is not an option. X-ray quality welds for heavy equipment and industrial infrastructure.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" onClick={() => window.location.href = `tel:${COMPANY_INFO.phone}`}>
@@ -180,7 +180,7 @@ export const Home: React.FC = () => {
           />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             {[
-              { icon: Shield, title: "Quality First", text: "We don't rush jobs or cut corners. Every weld is built to hold — period." },
+              { icon: Shield, title: "AWS Certified", text: "Backed by rigorous certification and a zero-failure track record. When stakes are high, we deliver." },
               { icon: MapPin, title: "Mobile Dispatch", text: "We come to you. Emergency dispatch available for critical breakdowns anywhere in the region." },
               { icon: Hammer, title: "Full Capability", text: "MIG, TIG, STICK, FLUX-CORE — every technique, every metal, every time." },
             ].map((item, index) => (

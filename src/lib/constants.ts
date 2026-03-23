@@ -14,7 +14,7 @@ export const SERVICES = [
     title: "Emergency Repair",
     tagline: "When Time Is Critical, We're There",
     icon: "https://kc-welding.com/wp-content/uploads/2024/08/Untitled-design-152.png",
-    image: "https://kc-welding.com/wp-content/uploads/2024/08/322367465_1129072047811402_7048800367314060031_n.jpg",
+    image: "/gallery/emergency-repair-svc.jpg",
     description: "At KC Welding, we understand that emergencies can happen at the most inconvenient times, disrupting your daily operations. That's why we offer time-sensitive solutions for all your welding and repair needs.",
     points: [
       "Rapid response for critical breakdowns",
@@ -42,7 +42,7 @@ export const SERVICES = [
     title: "Fabrication",
     tagline: "Bringing Your Metalwork Visions to Life",
     icon: "https://kc-welding.com/wp-content/uploads/2024/08/Untitled-design-154.png",
-    image: "https://kc-welding.com/wp-content/uploads/2024/08/321611757_498417779059188_2259306759171483200_n.jpg",
+    image: "/gallery/fabrication-svc.jpg",
     description: "When it comes to bringing your metalwork visions to life, our expert fabrication services are second to none! We specialize in custom metal fabrication that meets your exact specifications.",
     points: [
       "Custom metal fabrication",
@@ -84,7 +84,7 @@ export const SERVICES = [
     title: "Trailer Repair",
     tagline: "Road-Ready Repairs You Can Trust",
     icon: "https://kc-welding.com/wp-content/uploads/2024/08/Untitled-design-158.png",
-    image: "https://kc-welding.com/wp-content/uploads/2025/09/IMG_0170-scaled.jpg",
+    image: "/gallery/trailer-repair-svc.jpg",
     description: "At KC Welding we provide expert trailer repair services, ensuring your equipment is safe and road-ready.",
     points: [
       "Structural repairs",
@@ -126,7 +126,7 @@ export const SERVICES = [
     title: "Tractor Modifications",
     tagline: "Upgrade Your Machine's Capabilities",
     icon: "https://kc-welding.com/wp-content/uploads/2024/08/Untitled-design-161.png",
-    image: "https://kc-welding.com/wp-content/uploads/2025/09/IMG_0644-scaled.jpg",
+    image: "/gallery/tractor-repair-svc.jpg",
     description: "Transform your tractor with custom modifications designed to enhance performance and versatility.",
     points: [
       "Custom attachments",
@@ -140,7 +140,7 @@ export const SERVICES = [
     title: "Lean-To",
     tagline: "Covered Protection, Built Strong",
     icon: "https://kc-welding.com/wp-content/uploads/2024/08/Untitled-design-154.png",
-    image: "https://kc-welding.com/wp-content/uploads/2025/12/IMG_5094-scaled.jpg",
+    image: "/gallery/lean-to-svc.jpg",
     description: "Need additional covered space? KC Welding constructs sturdy lean-to structures that provide reliable protection.",
     points: [
       "Equipment and vehicle protection",
