@@ -132,12 +132,14 @@ export const Home: React.FC = () => {
                 transition={{ delay: index * 0.1 }}
               >
                 <Card className="h-full flex flex-col">
-                  <img 
-                    src={service.icon} 
-                    alt={service.title} 
-                    className="w-16 h-16 mb-6 invert"
-                    referrerPolicy="no-referrer"
-                  />
+                  <div className="w-16 h-16 mb-6 bg-brand-green flex items-center justify-center rounded-sm green-glow shrink-0">
+                    <img 
+                      src={service.icon} 
+                      alt={service.title} 
+                      className="w-10 h-10 invert brightness-200"
+                      referrerPolicy="no-referrer"
+                    />
+                  </div>
                   <h3 className="text-2xl mb-4">{service.title}</h3>
                   <p className="text-weathered-iron mb-6 flex-grow">
                     {service.description}
