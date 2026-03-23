@@ -13,10 +13,12 @@ export const Home: React.FC = () => {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-r from-iron-black via-iron-black/90 to-transparent z-10" />
-          <div className="absolute inset-0 bg-iron-black/40 z-10" />
-          {/* Green-flame filter: hue-rotate shifts blue arc → green */}
-          <div className="absolute inset-0 bg-brand-green/20 mix-blend-multiply z-[5]" />
+          {/* Radial gradient: transparent at flame hotspot, dark at edges */}
+          <div className="absolute inset-0 z-10" style={{
+            background: 'radial-gradient(ellipse 55% 65% at 62% 50%, transparent 0%, rgba(9,9,11,0.45) 45%, rgba(9,9,11,0.92) 100%)'
+          }} />
+          {/* Green tint overlay */}
+          <div className="absolute inset-0 bg-brand-green/15 mix-blend-multiply z-[5]" />
           <img 
             src="/flame-closeup.png" 
             alt="Welding Arc Close-Up" 
