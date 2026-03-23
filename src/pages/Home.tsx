@@ -27,7 +27,7 @@ export const Home: React.FC = () => {
             src="/flame-closeup.png" 
             alt="Welding Arc Close-Up" 
             className="w-full h-full object-cover"
-            style={{ filter: 'hue-rotate(-120deg) saturate(2) brightness(0.85)', objectPosition: 'center 60%' }}
+            style={{ filter: 'hue-rotate(-120deg) saturate(2) brightness(0.85)', objectPosition: 'center bottom', transform: 'scale(1.2)', transformOrigin: 'bottom center' }}
           />
         </div>
 
