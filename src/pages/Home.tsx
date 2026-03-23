@@ -31,13 +31,12 @@ export const Home: React.FC = () => {
           />
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full">
-          <div className="grid grid-cols-12">
-            <div className="col-span-12 lg:col-span-5">
+        <div className="px-8 sm:px-12 lg:px-16 relative z-20 w-full">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
+            className="max-w-lg"
           >
             <span className="text-brand-green-light font-display tracking-[0.3em] uppercase mb-4 block">
               AWS-Certified Industrial Welding — When Failure Is Not An Option
@@ -46,7 +45,7 @@ export const Home: React.FC = () => {
               FORGED IN FIRE. <br />
               <span className="text-brand-green-light">BUILT TO LAST.</span>
             </h1>
-            <p className="text-xl text-light-steel mb-10 max-w-xl font-body">
+            <p className="text-xl text-light-steel mb-10 font-body">
               We provide X-ray quality welds for heavy equipment, industrial infrastructure, and high-liability commercial projects. Quality over quick fixes — every job done right the first time.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -60,8 +59,6 @@ export const Home: React.FC = () => {
               </Link>
             </div>
           </motion.div>
-            </div>
-          </div>
         </div>
 
         {/* Quick Contact Bar */}
