@@ -11,7 +11,7 @@ export const Home: React.FC = () => {
   return (
     <div className="relative">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+      <section className="relative min-h-screen flex items-end pb-24 pt-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
           {/* Radial gradient: transparent at flame hotspot (right), dark at edges */}
           <div className="absolute inset-0 z-10" style={{
@@ -27,7 +27,7 @@ export const Home: React.FC = () => {
             src="/flame-closeup.png" 
             alt="Welding Arc Close-Up" 
             className="w-full h-full object-cover"
-            style={{ filter: 'hue-rotate(-120deg) saturate(2) brightness(0.85)', objectPosition: 'center bottom', transform: 'scale(1.2)', transformOrigin: 'bottom center' }}
+            style={{ filter: 'hue-rotate(-120deg) saturate(2) brightness(0.85)' }}
           />
         </div>
 
