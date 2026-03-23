@@ -13,9 +13,13 @@ export const Home: React.FC = () => {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          {/* Radial gradient: transparent at flame hotspot, dark at edges */}
+          {/* Radial gradient: transparent at flame hotspot (right), dark at edges */}
           <div className="absolute inset-0 z-10" style={{
-            background: 'radial-gradient(ellipse 55% 65% at 62% 50%, transparent 0%, rgba(9,9,11,0.45) 45%, rgba(9,9,11,0.92) 100%)'
+            background: 'radial-gradient(ellipse 55% 65% at 62% 50%, transparent 0%, rgba(9,9,11,0.55) 45%, rgba(9,9,11,0.97) 100%)'
+          }} />
+          {/* Extra dark sweep on the left so text pops */}
+          <div className="absolute inset-0 z-10" style={{
+            background: 'linear-gradient(to right, rgba(9,9,11,0.92) 0%, rgba(9,9,11,0.75) 30%, transparent 55%)'
           }} />
           {/* Green tint overlay */}
           <div className="absolute inset-0 bg-brand-green/15 mix-blend-multiply z-[5]" />
@@ -27,12 +31,13 @@ export const Home: React.FC = () => {
           />
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full">
+          <div className="grid grid-cols-12">
+            <div className="col-span-12 lg:col-span-5">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-3xl"
           >
             <span className="text-brand-green-light font-display tracking-[0.3em] uppercase mb-4 block">
               AWS-Certified Industrial Welding — When Failure Is Not An Option
@@ -41,7 +46,7 @@ export const Home: React.FC = () => {
               FORGED IN FIRE. <br />
               <span className="text-brand-green-light">BUILT TO LAST.</span>
             </h1>
-            <p className="text-xl text-light-steel mb-10 max-w-2xl font-body">
+            <p className="text-xl text-light-steel mb-10 max-w-xl font-body">
               We provide X-ray quality welds for heavy equipment, industrial infrastructure, and high-liability commercial projects. Quality over quick fixes — every job done right the first time.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -55,6 +60,8 @@ export const Home: React.FC = () => {
               </Link>
             </div>
           </motion.div>
+            </div>
+          </div>
         </div>
 
         {/* Quick Contact Bar */}
