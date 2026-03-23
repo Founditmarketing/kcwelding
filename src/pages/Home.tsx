@@ -115,7 +115,7 @@ export const Home: React.FC = () => {
             >
               <div className="absolute -top-4 -left-4 w-full h-full border-2 border-brand-green/40 z-0" />
               <img 
-                src="https://kc-welding.com/wp-content/uploads/2025/12/Resized_dsc_0009.jpeg" 
+                src="/gallery/Resized_dsc_0009.jpeg" 
                 alt="Welder at work" 
                 className="relative z-10 w-full h-[500px] object-cover forge-glow"
                 referrerPolicy="no-referrer"

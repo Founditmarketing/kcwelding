@@ -27,7 +27,7 @@ export const Navbar: React.FC = () => {
             {/* Logo */}
             <Link to="/" className="flex items-center group" onClick={() => setIsOpen(false)}>
               <img
-                src="https://kc-welding.com/wp-content/uploads/2024/08/Black-Red-Minimalist-Welding-Man-Logo-T2.png"
+                src="/gallery/Black-Red-Minimalist-Welding-Man-Logo-T2.png"
                 alt="KC Welding Logo"
                 className="h-10 w-auto mr-3 transition-transform group-hover:scale-110"
                 referrerPolicy="no-referrer"
@@ -88,7 +88,7 @@ export const Navbar: React.FC = () => {
             <div className="flex items-center justify-between px-6 h-20 border-b border-weathered-iron shrink-0">
               <Link to="/" onClick={() => setIsOpen(false)} className="flex items-center">
                 <img
-                  src="https://kc-welding.com/wp-content/uploads/2024/08/Black-Red-Minimalist-Welding-Man-Logo-T2.png"
+                  src="/gallery/Black-Red-Minimalist-Welding-Man-Logo-T2.png"
                   alt="KC Welding"
                   className="h-9 w-auto mr-3"
                   referrerPolicy="no-referrer"

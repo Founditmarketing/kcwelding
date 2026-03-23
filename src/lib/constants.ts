@@ -13,7 +13,7 @@ export const SERVICES = [
     id: "emergency-repair",
     title: "Emergency Repair",
     tagline: "When Time Is Critical, We're There",
-    icon: "https://kc-welding.com/wp-content/uploads/2024/08/Untitled-design-152.png",
+    icon: "/gallery/Untitled-design-152.png",
     image: "/gallery/emergency-repair-svc.jpg",
     description: "At KC Welding, we understand that emergencies can happen at the most inconvenient times, disrupting your daily operations. That's why we offer time-sensitive solutions for all your welding and repair needs.",
     points: [
@@ -27,8 +27,8 @@ export const SERVICES = [
     id: "torch-cutting",
     title: "Torch Cutting",
     tagline: "Precision Cuts Through Any Metal",
-    icon: "https://kc-welding.com/wp-content/uploads/2024/08/Untitled-design-153.png",
-    image: "https://kc-welding.com/wp-content/uploads/2024/08/KC-Welding-4-1-scaled.jpeg",
+    icon: "/gallery/Untitled-design-153.png",
+    image: "/gallery/KC-Welding-4-1-scaled.jpeg",
     description: "Our torch cutting services at KC Welding are designed to deliver precision for all your metal fabrication and repair needs. Using high-quality equipment and expert techniques.",
     points: [
       "High-temperature precision cutting",
@@ -41,7 +41,7 @@ export const SERVICES = [
     id: "fabrication",
     title: "Fabrication",
     tagline: "Bringing Your Metalwork Visions to Life",
-    icon: "https://kc-welding.com/wp-content/uploads/2024/08/Untitled-design-154.png",
+    icon: "/gallery/Untitled-design-154.png",
     image: "/gallery/fabrication-svc.jpg",
     description: "When it comes to bringing your metalwork visions to life, our expert fabrication services are second to none! We specialize in custom metal fabrication that meets your exact specifications.",
     points: [
@@ -55,8 +55,8 @@ export const SERVICES = [
     id: "fence-repair",
     title: "Fence Repair",
     tagline: "Security and Strength Restored",
-    icon: "https://kc-welding.com/wp-content/uploads/2024/08/Untitled-design-155.png",
-    image: "https://kc-welding.com/wp-content/uploads/2025/12/IMG_9564-scaled.jpg",
+    icon: "/gallery/Untitled-design-155.png",
+    image: "/gallery/IMG_9564-scaled.jpg",
     description: "When it comes to keeping your property secure and looking its best, our expert fence repair welding services have you covered!",
     points: [
       "Metal rail repairs",
@@ -69,8 +69,8 @@ export const SERVICES = [
     id: "equipment-repair",
     title: "Equipment Repair",
     tagline: "Get Your Machinery Back to Work",
-    icon: "https://kc-welding.com/wp-content/uploads/2024/08/Untitled-design-156.png",
-    image: "https://kc-welding.com/wp-content/uploads/2024/08/427910016_369080659408620_1393390380739899691_n.jpg",
+    icon: "/gallery/Untitled-design-156.png",
+    image: "/gallery/427910016_369080659408620_1393390380739899691_n.jpg",
     description: "When your equipment is down, so is your productivity—don't let that happen! We specialize in top-notch equipment repair services.",
     points: [
       "Heavy machinery repairs",
@@ -83,7 +83,7 @@ export const SERVICES = [
     id: "trailer-repair",
     title: "Trailer Repair",
     tagline: "Road-Ready Repairs You Can Trust",
-    icon: "https://kc-welding.com/wp-content/uploads/2024/08/Untitled-design-158.png",
+    icon: "/gallery/Untitled-design-158.png",
     image: "/gallery/trailer-repair-svc.jpg",
     description: "At KC Welding we provide expert trailer repair services, ensuring your equipment is safe and road-ready.",
     points: [
@@ -97,8 +97,8 @@ export const SERVICES = [
     id: "welding-techniques",
     title: "MIG / TIG / STICK / FLUX-CORE",
     tagline: "Every Technique. Every Metal. Every Time.",
-    icon: "https://kc-welding.com/wp-content/uploads/2024/08/Untitled-design-159.png",
-    image: "https://kc-welding.com/wp-content/uploads/2024/08/KC-Welding-pt-2-2-scaled.jpeg",
+    icon: "/gallery/Untitled-design-159.png",
+    image: "/gallery/KC-Welding-pt-2-2-scaled.jpeg",
     description: "When it comes to top-notch welding services, we've got you covered with a full range of techniques.",
     points: [
       "MIG — Fast, versatile, great for most projects",
@@ -111,8 +111,8 @@ export const SERVICES = [
     id: "duck-blind",
     title: "Duck Blind",
     tagline: "Custom Built for the Serious Hunter",
-    icon: "https://kc-welding.com/wp-content/uploads/2024/08/Untitled-design-160.png",
-    image: "https://kc-welding.com/wp-content/uploads/2024/08/Untitled-1200-x-1600-px.png",
+    icon: "/gallery/Untitled-design-160.png",
+    image: "/gallery/Untitled-1200-x-1600-px.png",
     description: "When it comes to duck blind welding, we bring the precision and craftsmanship needed to keep you hidden.",
     points: [
       "Custom-fitted construction",
@@ -125,7 +125,7 @@ export const SERVICES = [
     id: "tractor-modifications",
     title: "Tractor Modifications",
     tagline: "Upgrade Your Machine's Capabilities",
-    icon: "https://kc-welding.com/wp-content/uploads/2024/08/Untitled-design-161.png",
+    icon: "/gallery/Untitled-design-161.png",
     image: "/gallery/tractor-repair-svc.jpg",
     description: "Transform your tractor with custom modifications designed to enhance performance and versatility.",
     points: [
@@ -139,7 +139,7 @@ export const SERVICES = [
     id: "lean-to",
     title: "Lean-To",
     tagline: "Covered Protection, Built Strong",
-    icon: "https://kc-welding.com/wp-content/uploads/2024/08/Untitled-design-154.png",
+    icon: "/gallery/Untitled-design-154.png",
     image: "/gallery/lean-to-svc.jpg",
     description: "Need additional covered space? KC Welding constructs sturdy lean-to structures that provide reliable protection.",
     points: [
@@ -153,8 +153,8 @@ export const SERVICES = [
     id: "metal-building",
     title: "Metal Building",
     tagline: "Structures Built to Stand the Test of Time",
-    icon: "https://kc-welding.com/wp-content/uploads/2024/08/Untitled-design-161.png",
-    image: "https://kc-welding.com/wp-content/uploads/2025/07/Black-and-Brown-Grand-Opening-Instagram-Post-Facebook-Post.png",
+    icon: "/gallery/Untitled-design-161.png",
+    image: "/gallery/Black-and-Brown-Grand-Opening-Instagram-Post-Facebook-Post.png",
     description: "When it comes to metal building welding, we bring the precision and craftsmanship needed to ensure your structure is strong.",
     points: [
       "Workshops and storage units",

@@ -12,7 +12,7 @@ export const Footer: React.FC = () => {
           <div className="space-y-6">
             <Link to="/" className="flex items-center">
               <img 
-                src="https://kc-welding.com/wp-content/uploads/2024/08/Black-Red-Minimalist-Welding-Man-Logo-T2.png" 
+                src="/gallery/Black-Red-Minimalist-Welding-Man-Logo-T2.png" 
                 alt="KC Welding Logo" 
                 className="h-12 w-auto mr-3"
                 referrerPolicy="no-referrer"

@@ -12,7 +12,7 @@ export const About: React.FC = () => {
       <section className="relative py-32 bg-iron-black overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <img 
-            src="https://kc-welding.com/wp-content/uploads/2025/12/Resized_dsc_0009.jpeg" 
+            src="/gallery/Resized_dsc_0009.jpeg" 
             alt="About Background" 
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
@@ -59,8 +59,8 @@ export const About: React.FC = () => {
               viewport={{ once: true }}
               className="grid grid-cols-2 gap-4"
             >
-              <img src="https://kc-welding.com/wp-content/uploads/2024/08/KC-Welding-3-scaled.jpeg" alt="Work 1" className="w-full h-64 object-cover border border-weathered-iron" referrerPolicy="no-referrer" />
-              <img src="https://kc-welding.com/wp-content/uploads/2024/08/KC-Welding-5-scaled.jpeg" alt="Work 2" className="w-full h-64 object-cover border border-weathered-iron mt-8" referrerPolicy="no-referrer" />
+              <img src="/gallery/KC-Welding-3-scaled.jpeg" alt="Work 1" className="w-full h-64 object-cover border border-weathered-iron" referrerPolicy="no-referrer" />
+              <img src="/gallery/KC-Welding-5-scaled.jpeg" alt="Work 2" className="w-full h-64 object-cover border border-weathered-iron mt-8" referrerPolicy="no-referrer" />
             </motion.div>
           </div>
         </div>

@@ -69,7 +69,7 @@ export const Services: React.FC = () => {
     <div className="pt-20">
       <section className="relative py-32 bg-iron-black overflow-hidden">
         <div className="absolute inset-0 opacity-20">
-          <img src="https://kc-welding.com/wp-content/uploads/2024/08/KC-Welding-pt-2-2-scaled.jpeg" alt="Services Background" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+          <img src="/gallery/KC-Welding-pt-2-2-scaled.jpeg" alt="Services Background" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
