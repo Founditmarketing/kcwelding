@@ -10,8 +10,17 @@ export const Gallery: React.FC = () => {
   return (
     <div className="pt-20">
       <section className="relative py-32 bg-iron-black overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <img src={GALLERY_IMAGES[0]} alt="Gallery Hero" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+        <div className="absolute inset-0">
+          {/* Green-flame filter: wide welding scene */}
+          <div className="absolute inset-0 bg-brand-green/20 mix-blend-multiply z-[5]" />
+          <div className="absolute inset-0 bg-iron-black/60 z-[6]" />
+          <img 
+            src="https://kc-welding.com/wp-content/uploads/2024/08/KC-Welding-4-scaled.jpeg" 
+            alt="Gallery Hero — Welding Scene" 
+            className="w-full h-full object-cover"
+            style={{ filter: 'hue-rotate(-120deg) saturate(1.8) brightness(0.75)' }}
+            referrerPolicy="no-referrer"
+          />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>

@@ -15,11 +15,13 @@ export const Home: React.FC = () => {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-r from-iron-black via-iron-black/90 to-transparent z-10" />
           <div className="absolute inset-0 bg-iron-black/40 z-10" />
-          
+          {/* Green-flame filter: hue-rotate shifts blue arc → green */}
+          <div className="absolute inset-0 bg-brand-green/20 mix-blend-multiply z-[5]" />
           <img 
-            src="https://kc-welding.com/wp-content/uploads/2024/08/KC-Welding-4-scaled.jpeg" 
-            alt="Welding Background" 
+            src="https://kc-welding.com/wp-content/uploads/2024/08/KC-Welding-pt-2-2-scaled.jpeg" 
+            alt="Welding Arc Close-Up" 
             className="w-full h-full object-cover"
+            style={{ filter: 'hue-rotate(-120deg) saturate(2) brightness(0.85)' }}
             referrerPolicy="no-referrer"
           />
         </div>
