@@ -11,7 +11,7 @@ export const Home: React.FC = () => {
   return (
     <div className="relative">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-end pb-24 pt-20 overflow-hidden">
+      <section className="relative min-h-[75vh] flex items-center pt-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
           {/* Radial gradient: transparent at flame hotspot (right), dark at edges */}
           <div className="absolute inset-0 z-10" style={{
