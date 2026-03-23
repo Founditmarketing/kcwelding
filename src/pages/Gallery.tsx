@@ -16,8 +16,8 @@ export const Gallery: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <h1 className="text-6xl md:text-8xl mb-4">OUR WORK</h1>
-            <p className="text-xl text-forge-orange font-display tracking-[0.3em] uppercase">
-              See the Quality. Trust the Craft.
+            <p className="text-xl text-brand-green-light font-display tracking-[0.3em] uppercase">
+              Real-Time Project Photos — Biggest & Baddest Jobs
             </p>
           </motion.div>
         </div>
@@ -42,7 +42,7 @@ export const Gallery: React.FC = () => {
                   className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-forge-orange/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <div className="absolute inset-0 bg-brand-green/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                   <div className="w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center">
                     <Maximize2 className="text-white" />
                   </div>
@@ -64,7 +64,7 @@ export const Gallery: React.FC = () => {
             onClick={() => setSelectedImage(null)}
           >
             <button 
-              className="absolute top-6 right-6 text-white hover:text-forge-orange transition-colors z-10"
+              className="absolute top-6 right-6 text-white hover:text-brand-green-light transition-colors z-10"
               onClick={() => setSelectedImage(null)}
             >
               <X size={40} />

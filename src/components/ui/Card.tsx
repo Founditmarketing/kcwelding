@@ -10,7 +10,7 @@ interface CardProps {
 export const Card: React.FC<CardProps> = ({ children, className, riveted = true }) => {
   return (
     <div className={cn(
-      'relative bg-deep-iron border border-weathered-iron p-6 group transition-all duration-500 hover:border-forge-orange/50',
+      'relative bg-deep-iron border border-weathered-iron p-6 group transition-all duration-500 hover:border-brand-green/50',
       className
     )}>
       {riveted && (
@@ -24,7 +24,7 @@ export const Card: React.FC<CardProps> = ({ children, className, riveted = true 
       <div className="relative z-10">
         {children}
       </div>
-      <div className="absolute inset-0 bg-forge-orange/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="absolute inset-0 bg-brand-green/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
     </div>
   );
 };

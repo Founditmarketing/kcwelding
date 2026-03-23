@@ -12,12 +12,8 @@
   --color-brand-green-dark: #3A5233;
   --color-brand-green-light: #5A7D4F;
 
-  /* Legacy orange (kept as secondary accent) */
-  --color-forge-orange: #FF4500;
-  --color-ember-glow: #FF6B35;
-  --color-forge-red: #E63900;
-  --color-white-hot: #FFB347;
-  --color-spark: #FF8C42;
+  /* Warm highlight (replaces orange — used for h1 accented text) */
+  --color-forge-orange: #6B8F63;
   
   /* Dark base palette */
   --color-iron-black: #09090b;

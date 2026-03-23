@@ -36,7 +36,7 @@ export const Home: React.FC = () => {
             </span>
             <h1 className="text-6xl md:text-8xl mb-6 leading-[0.9]">
               FORGED IN FIRE. <br />
-              <span className="text-forge-orange">BUILT TO LAST.</span>
+              <span className="text-brand-green-light">BUILT TO LAST.</span>
             </h1>
             <p className="text-xl text-light-steel mb-10 max-w-2xl font-body">
               We provide X-ray quality welds for heavy equipment, industrial infrastructure, and high-liability commercial projects. Quality over quick fixes — every job done right the first time.
@@ -102,7 +102,7 @@ export const Home: React.FC = () => {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="absolute -top-4 -left-4 w-full h-full border-2 border-forge-orange/30 z-0" />
+              <div className="absolute -top-4 -left-4 w-full h-full border-2 border-brand-green/40 z-0" />
               <img 
                 src="https://kc-welding.com/wp-content/uploads/2025/12/Resized_dsc_0009.jpeg" 
                 alt="Welder at work" 
