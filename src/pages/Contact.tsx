@@ -52,22 +52,22 @@ export const Contact: React.FC = () => {
               <SectionHeading title="GET IN TOUCH" subtitle="Contact Information" />
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
                 <Card className="flex flex-col items-center text-center p-8">
-                  <Phone className="w-8 h-8 text-brand-green-light mb-4" />
+                  <Phone className="w-8 h-8 text-brand-green-light mb-4 mx-auto" />
                   <h4 className="text-white font-display uppercase mb-2">Call Us</h4>
                   <a href={`tel:${COMPANY_INFO.phone}`} className="text-weathered-iron hover:text-brand-green-light">{COMPANY_INFO.phone}</a>
                 </Card>
                 <Card className="flex flex-col items-center text-center p-8">
-                  <Mail className="w-8 h-8 text-brand-green-light mb-4" />
+                  <Mail className="w-8 h-8 text-brand-green-light mb-4 mx-auto" />
                   <h4 className="text-white font-display uppercase mb-2">Email Us</h4>
                   <a href={`mailto:${COMPANY_INFO.email}`} className="text-weathered-iron hover:text-brand-green-light break-all">{COMPANY_INFO.email}</a>
                 </Card>
                 <Card className="flex flex-col items-center text-center p-8">
-                  <MapPin className="w-8 h-8 text-brand-green-light mb-4" />
+                  <MapPin className="w-8 h-8 text-brand-green-light mb-4 mx-auto" />
                   <h4 className="text-white font-display uppercase mb-2">Service Area</h4>
                   <span className="text-weathered-iron">{COMPANY_INFO.location}</span>
                 </Card>
                 <Card className="flex flex-col items-center text-center p-8">
-                  <Facebook className="w-8 h-8 text-brand-green-light mb-4" />
+                  <Facebook className="w-8 h-8 text-brand-green-light mb-4 mx-auto" />
                   <h4 className="text-white font-display uppercase mb-2">Follow Us</h4>
                   <a href={COMPANY_INFO.facebook} target="_blank" rel="noreferrer" className="text-weathered-iron hover:text-brand-green-light">@KCWelding</a>
                 </Card>
