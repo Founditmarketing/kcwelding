@@ -29,7 +29,7 @@ export const Navbar: React.FC = () => {
               <img
                 src="/gallery/Black-Red-Minimalist-Welding-Man-Logo-T2.png"
                 alt="KC Welding Logo"
-                className="h-10 w-auto mr-3 transition-transform group-hover:scale-110"
+                className="h-16 w-auto mr-3 transition-transform group-hover:scale-110"
                 referrerPolicy="no-referrer"
               />
               <div className="flex flex-col">
@@ -90,7 +90,7 @@ export const Navbar: React.FC = () => {
                 <img
                   src="/gallery/Black-Red-Minimalist-Welding-Man-Logo-T2.png"
                   alt="KC Welding"
-                  className="h-9 w-auto mr-3"
+                  className="h-14 w-auto mr-3"
                   referrerPolicy="no-referrer"
                 />
                 <span className="font-display text-xl text-white">KC WELDING</span>
