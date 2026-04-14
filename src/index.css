@@ -1,86 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Bebas+Neue&family=Barlow+Condensed:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Archivo+Black&family=Barlow+Condensed:wght@400;500;600;700&family=Exo+2:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @theme {
-  --font-display: "Archivo Black", sans-serif;
+  /* ── Typography ─────────────────────────── */
+  --font-display: "Bebas Neue", sans-serif;
+  --font-heading: "Barlow Condensed", sans-serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
-  /* OG Brand Greens (primary) */
-  --color-brand-green: #4A6741;
-  --color-brand-green-dark: #3A5233;
-  --color-brand-green-light: #5A7D4F;
+  /* ── Primary Accent — Amber / Warm Brass ─── */
+  --color-amber:        #D4891A;
+  --color-amber-light:  #E8A535;
+  --color-amber-dark:   #B06F10;
+  --color-amber-glow:   rgba(212, 137, 26, 0.25);
 
-  /* Warm highlight (replaces orange — used for h1 accented text) */
-  --color-forge-orange: #6B8F63;
-  
-  /* Dark base palette */
-  --color-iron-black: #09090b;
-  --color-deep-iron: #18181b;
-  --color-cooled-steel: #27272a;
-  --color-brushed-metal: #3f3f46;
-  --color-weathered-iron: #8f9199;
-  --color-light-steel: #c0c2c8;
-  --color-polished-edge: #e4e4e7;
+  /* ── Dark Charcoal Base ─────────────────── */
+  --color-charcoal-950: #0e0e0f;
+  --color-charcoal-900: #141416;
+  --color-charcoal-800: #1a1a1d;
+  --color-charcoal-700: #222226;
 
-  --color-arc-blue: #1E90FF;
-  --color-torch-blue: #00BFFF;
-  --color-flame-core: #4169E1;
-  --color-arc-flash: #87CEEB;
+  /* ── Steel Grays ──────────────────────── */
+  --color-steel-600:    #2e2e34;
+  --color-steel-500:    #42424b;
+  --color-steel-400:    #6b6b78;
+  --color-steel-300:    #9b9ba8;
+  --color-steel-200:    #c4c4cf;
+  --color-steel-100:    #e8e8ef;
 
-  --color-rust: #2F1810;
-  --color-patina: #4A3728;
-  --color-scorched: #1C1410;
+  /* ── Crisp White ──────────────────────── */
+  --color-white:        #ffffff;
+  --color-off-white:    #f0f0f4;
+
+  /* ── Legacy aliases for compat ──────────── */
+  --color-iron-black:     var(--color-charcoal-950);
+  --color-deep-iron:      var(--color-charcoal-800);
+  --color-cooled-steel:   var(--color-steel-600);
+  --color-brushed-metal:  var(--color-steel-500);
+  --color-weathered-iron: var(--color-steel-400);
+  --color-light-steel:    var(--color-steel-200);
+  --color-polished-edge:  var(--color-steel-100);
+
+  /* ── Brand (mapped to amber accent) ────── */
+  --color-brand-green:       var(--color-amber);
+  --color-brand-green-dark:  var(--color-amber-dark);
+  --color-brand-green-light: var(--color-amber-light);
 }
 
+/* ═══════════════════════════════════════════
+   BASE
+═══════════════════════════════════════════ */
 @layer base {
   body {
-    @apply bg-zinc-950 text-light-steel font-body antialiased selection:bg-brand-green selection:text-white;
+    @apply bg-charcoal-950 text-steel-200 font-body antialiased;
+    selection-color: #fff;
+    ::selection { background: var(--color-amber); color: #fff; }
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display uppercase tracking-tighter text-white;
+    @apply font-display uppercase tracking-wide text-white;
+  }
+
+  a {
+    @apply transition-colors duration-200;
   }
 }
 
+/* ═══════════════════════════════════════════
+   UTILITIES
+═══════════════════════════════════════════ */
 @layer utilities {
+
+  /* Metal panel gradient */
   .metal-gradient {
-    background: linear-gradient(135deg, #18181b 0%, #27272a 50%, #18181b 100%);
-    background-size: 200% 200%;
+    background: linear-gradient(135deg, #1a1a1d 0%, #222226 50%, #1a1a1d 100%);
   }
 
-  .forge-glow {
-    box-shadow: 0 0 20px rgba(74, 103, 65, 0.4);
-  }
-
-  .arc-glow {
-    box-shadow: 0 0 20px rgba(30, 144, 255, 0.3);
-  }
-
-  .green-glow {
-    box-shadow: 0 0 24px rgba(74, 103, 65, 0.5);
-  }
-
-  .rivet {
-    @apply w-2 h-2 rounded-full bg-weathered-iron shadow-inner;
-  }
-
+  /* Subtle dot grid texture */
   .diamond-plate {
-    background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.04) 1px, transparent 0);
-    background-size: 16px 16px;
+    background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.035) 1px, transparent 0);
+    background-size: 18px 18px;
   }
+
+  /* Amber accent glows */
+  .amber-glow {
+    box-shadow: 0 0 28px rgba(212, 137, 26, 0.35), 0 0 60px rgba(212, 137, 26, 0.12);
+  }
+
+  .amber-glow-sm {
+    box-shadow: 0 0 14px rgba(212, 137, 26, 0.3);
+  }
+
+  /* Legacy glow aliases */
+  .forge-glow  { box-shadow: 0 0 20px rgba(212, 137, 26, 0.4); }
+  .green-glow  { box-shadow: 0 0 24px rgba(212, 137, 26, 0.45); }
+
+  /* Brushed steel horizontal rule */
+  .steel-rule {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-steel-500), transparent);
+  }
+
+  /* Accent bar used in section headings */
+  .accent-bar {
+    display: block;
+    width: 3rem;
+    height: 3px;
+    background: var(--color-amber);
+  }
+
+  /* Nav link active indicator */
+  .nav-active {
+    color: var(--color-amber-light);
+  }
+  .nav-active::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--color-amber);
+    margin-top: 2px;
+    border-radius: 1px;
+  }
+
+  /* Hero text shimmer */
+  @keyframes shimmer {
+    0%   { background-position: -200% center; }
+    100% { background-position:  200% center; }
+  }
+  .text-shimmer {
+    background: linear-gradient(90deg, var(--color-amber-dark) 0%, var(--color-amber-light) 40%, #fff9f0 50%, var(--color-amber-light) 60%, var(--color-amber-dark) 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 6s linear infinite;
+  }
+
+  /* Staggered fade-in */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up-1 { animation: fadeUp 0.7s ease forwards; }
+  .fade-up-2 { animation: fadeUp 0.7s 0.15s ease both; }
+  .fade-up-3 { animation: fadeUp 0.7s 0.3s  ease both; }
+  .fade-up-4 { animation: fadeUp 0.7s 0.45s ease both; }
+  .fade-up-5 { animation: fadeUp 0.7s 0.6s  ease both; }
+
+  /* Hero CTA button pulse */
+  @keyframes pulse-amber {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(212, 137, 26, 0.5); }
+    50%       { box-shadow: 0 0 0 10px rgba(212, 137, 26, 0); }
+  }
+  .btn-pulse { animation: pulse-amber 2.5s ease-in-out infinite; }
+
+  /* Ticker / marquee */
+  @keyframes ticker {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .ticker-inner { animation: ticker 28s linear infinite; }
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  @apply bg-zinc-950;
-}
-
+/* ═══════════════════════════════════════════
+   CUSTOM SCROLLBAR
+═══════════════════════════════════════════ */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--color-charcoal-950); }
 ::-webkit-scrollbar-thumb {
-  @apply bg-brand-green rounded-full hover:bg-brand-green-light transition-colors;
+  background: var(--color-amber-dark);
+  border-radius: 4px;
 }
+::-webkit-scrollbar-thumb:hover { background: var(--color-amber); }

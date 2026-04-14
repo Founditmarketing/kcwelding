@@ -1,87 +1,201 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { Phone, ArrowRight, Shield, MapPin, Clock, Hammer } from 'lucide-react';
+import { Phone, ArrowRight, Shield, MapPin, Clock, Hammer, CheckCircle2, Zap } from 'lucide-react';
 import { COMPANY_INFO, SERVICES, GALLERY_IMAGES } from '@/src/lib/constants';
 import { Button } from '@/src/components/ui/Button';
 import { Card } from '@/src/components/ui/Card';
 import { SectionHeading } from '@/src/components/ui/SectionHeading';
 
+/* ─── Ticker items ──────────────────────────────────────────── */
+const TICKER_ITEMS = [
+  'Licensed LLC',
+  'Structural Steel',
+  'Pipeline Welding',
+  'Plant Maintenance',
+  'Emergency On-Site Service',
+  'Fences & Gates',
+  'Signs & Fabrication',
+  'Building Repairs',
+  'Any Size Job',
+  'Fair Pricing — Every Time',
+  'Central Louisiana',
+  'MIG · TIG · STICK · FLUX-CORE',
+];
+
 export const Home: React.FC = () => {
   return (
     <div className="relative">
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center py-32 overflow-hidden">
+
+      {/* ═══════════════════════════════════════════════════════════
+          HERO SECTION
+      ════════════════════════════════════════════════════════════ */}
+      <section
+        id="hero"
+        className="relative min-h-screen flex items-center overflow-hidden"
+        aria-label="KC Welding — Hero"
+      >
+
+        {/* ── Background Layer ──────────────────────────────────── */}
         <div className="absolute inset-0 z-0">
-          {/* Radial gradient: transparent at flame hotspot (right), dark at edges */}
-          <div className="absolute inset-0 z-10" style={{
-            background: 'radial-gradient(ellipse 55% 65% at 62% 50%, transparent 0%, rgba(9,9,11,0.55) 45%, rgba(9,9,11,0.97) 100%)'
-          }} />
-          {/* Extra dark sweep on the left so text pops */}
-          <div className="absolute inset-0 z-10" style={{
-            background: 'linear-gradient(to right, rgba(9,9,11,0.92) 0%, rgba(9,9,11,0.75) 30%, transparent 55%)'
-          }} />
-          {/* Mobile-only full dark overlay — flame too distracting on small screens */}
-          <div className="absolute inset-0 z-10 md:hidden" style={{
-            background: 'rgba(9,9,11,0.82)'
-          }} />
-          {/* Green tint overlay */}
-          <div className="absolute inset-0 bg-brand-green/15 mix-blend-multiply z-[5]" />
-          <img 
-            src="/flame-closeup.png" 
-            alt="Welding Arc Close-Up" 
-            className="w-full h-full object-cover"
-            style={{ filter: 'hue-rotate(-120deg) saturate(2) brightness(0.85)' }}
+          {/* Base dark fill — visible before image loads */}
+          <div className="absolute inset-0 bg-charcoal-950" />
+
+          {/* Hero image (client will swap this) */}
+          <img
+            src="/flame-closeup.png"
+            alt="Welding arc — industrial work in action"
+            className="absolute inset-0 w-full h-full object-cover object-center"
+            style={{ filter: 'brightness(0.45) saturate(0.7)' }}
+          />
+
+          {/* Left text-protection gradient */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                'linear-gradient(105deg, rgba(14,14,15,0.97) 0%, rgba(14,14,15,0.82) 38%, rgba(14,14,15,0.35) 65%, rgba(14,14,15,0.10) 100%)',
+            }}
+          />
+          {/* Top vignette */}
+          <div
+            className="absolute inset-0"
+            style={{ background: 'linear-gradient(to bottom, rgba(14,14,15,0.6) 0%, transparent 25%)' }}
+          />
+          {/* Bottom fade into ticker */}
+          <div
+            className="absolute inset-x-0 bottom-0 h-40"
+            style={{ background: 'linear-gradient(to top, rgba(14,14,15,1) 0%, transparent 100%)' }}
+          />
+          {/* Mobile full overlay */}
+          <div className="absolute inset-0 md:hidden" style={{ background: 'rgba(14,14,15,0.78)' }} />
+
+          {/* Amber warm tint — barely visible, adds warmth */}
+          <div
+            className="absolute inset-0 mix-blend-soft-light"
+            style={{ background: 'radial-gradient(ellipse 60% 60% at 72% 50%, rgba(212,137,26,0.08) 0%, transparent 70%)' }}
           />
         </div>
 
-        <div className="px-8 sm:px-12 lg:px-16 relative z-20 w-full">
+        {/* ── Content ───────────────────────────────────────────── */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pt-28 pb-44">
+
+          {/* Kicker label */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            className="fade-up-1 mb-6 flex items-center gap-3"
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-2xl"
+            transition={{ duration: 0.6 }}
           >
-            <span className="text-brand-green-light font-display tracking-[0.3em] uppercase mb-4 block">
-              Professional Mobile Welding & Fabrication — Quality Done Right
+            <span className="accent-bar" />
+            <span className="text-amber-light font-sans text-xs sm:text-sm font-semibold tracking-[0.35em] uppercase">
+              Licensed LLC &nbsp;·&nbsp; Central Louisiana &nbsp;·&nbsp; Est. {COMPANY_INFO.established}
             </span>
-            <h1 className="text-6xl md:text-8xl mb-6 leading-[0.9]">
-              FORGED IN FIRE. <br />
-              <span className="text-brand-green-light">BUILT TO LAST.</span>
-            </h1>
-            <p className="text-xl text-light-steel mb-10 font-body">
-              When failure is not an option. X-ray quality welds for heavy equipment and industrial infrastructure.
+          </motion.div>
+
+          {/* Primary Headline */}
+          <motion.h1
+            className="text-[clamp(3rem,8vw,7rem)] leading-[0.88] tracking-tight mb-6 max-w-3xl"
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+          >
+            Your Community's Premier{' '}
+            <span className="text-shimmer whitespace-nowrap">Welding &amp;</span>
+            <br className="hidden sm:block" />{' '}
+            Infrastructure{' '}
+            <span className="text-shimmer">Specialists.</span>
+          </motion.h1>
+
+          {/* Sub-headline */}
+          <motion.p
+            className="text-steel-200 text-lg sm:text-xl font-body leading-relaxed mb-10 max-w-xl"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.22 }}
+          >
+            From neighborhood fences to major structural repairs &mdash; every job
+            handled with expert precision and priced fairly.
+          </motion.p>
+
+          {/* CTAs */}
+          <motion.div
+            className="flex flex-col sm:flex-row gap-4 mb-10"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.34 }}
+          >
+            {/* Primary — Call */}
+            <a
+              href={`tel:${COMPANY_INFO.phone}`}
+              id="hero-cta-call"
+              className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-amber hover:bg-amber-light text-charcoal-950 font-sans font-bold text-base tracking-widest uppercase rounded-sm transition-all duration-200 amber-glow btn-pulse"
+            >
+              <Phone className="w-5 h-5 shrink-0" />
+              Call {COMPANY_INFO.phone}
+            </a>
+
+            {/* Secondary — Portfolio */}
+            <Link
+              to="/gallery"
+              id="hero-cta-portfolio"
+              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 border border-steel-400/60 hover:border-amber/70 text-steel-100 hover:text-white font-sans font-semibold text-base tracking-widest uppercase rounded-sm transition-all duration-200 hover:bg-white/5 group"
+            >
+              View Our Work
+              <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1.5" />
+            </Link>
+          </motion.div>
+
+          {/* Fast-response nudge */}
+          <motion.div
+            className="flex items-center gap-2.5"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+          >
+            <Zap className="w-4 h-4 text-amber shrink-0" />
+            <p className="text-steel-300 text-sm font-sans">
+              <span className="font-semibold text-steel-100">For the fastest response,</span> call us directly.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" onClick={() => window.location.href = `tel:${COMPANY_INFO.phone}`}>
-                Get A Quote
-              </Button>
-              <Link to="/gallery">
-                <Button variant="outline" size="lg">
-                  View Our Work
-                </Button>
-              </Link>
-            </div>
+          </motion.div>
+
+          {/* Trust badges */}
+          <motion.div
+            className="mt-10 flex flex-wrap gap-4"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.62 }}
+          >
+            {[
+              'Any Size Job Welcome',
+              'Fair Transparent Pricing',
+              'Licensed & Insured LLC',
+              'On-Site Mobile Service',
+            ].map((badge) => (
+              <div
+                key={badge}
+                className="flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-sm px-3 py-1.5"
+              >
+                <CheckCircle2 className="w-3.5 h-3.5 text-amber shrink-0" />
+                <span className="text-steel-200 text-xs font-sans font-medium tracking-wide">{badge}</span>
+              </div>
+            ))}
           </motion.div>
         </div>
 
-        {/* Quick Contact Bar */}
-        <div className="absolute bottom-0 left-0 w-full bg-deep-iron/80 backdrop-blur-md border-t border-weathered-iron py-6 z-30">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-center md:justify-between items-center gap-6">
-            <div className="flex items-center space-x-3">
-              <Phone className="text-brand-green-light" />
-              <span className="font-display text-xl text-white tracking-widest">{COMPANY_INFO.phone}</span>
-            </div>
-            <div className="flex items-center space-x-3">
-              <MapPin className="text-brand-green-light" />
-              <span className="font-display text-xl text-white tracking-widest">MOBILE SERVICE AREA</span>
-            </div>
-            <div className="hidden lg:flex items-center space-x-3">
-              <Clock className="text-brand-green-light" />
-              <span className="font-display text-xl text-white tracking-widest">EST. {COMPANY_INFO.established}</span>
-            </div>
+        {/* ── Scrolling Credential Ticker ───────────────────────── */}
+        <div className="absolute bottom-0 left-0 w-full z-20 border-t border-steel-600/30 bg-charcoal-950/90 backdrop-blur-md overflow-hidden py-4">
+          <div className="flex whitespace-nowrap ticker-inner gap-0">
+            {/* Doubled list for seamless loop */}
+            {[...TICKER_ITEMS, ...TICKER_ITEMS].map((item, i) => (
+              <span key={i} className="inline-flex items-center gap-4 px-6 text-steel-300 text-xs sm:text-sm font-sans tracking-[0.18em] uppercase">
+                <span className="w-1.5 h-1.5 rounded-full bg-amber shrink-0" />
+                {item}
+              </span>
+            ))}
           </div>
         </div>
+
       </section>
 
       {/* About Preview */}
@@ -100,7 +214,7 @@ export const Home: React.FC = () => {
               <p className="text-lg text-weathered-iron mb-6 leading-relaxed">
                 KC Welding is a professional industrial welding and fabrication company built on one principle: failure is not an option. We serve fleet managers, engineers, construction firms, agricultural operators, and industrial facilities who demand perfection on every weld.
               </p>
-              <p className="text-lg text-brand-green-light italic border-l-4 border-brand-green pl-4 mb-10 leading-relaxed">
+              <p className="text-lg text-amber-light italic border-l-4 border-amber pl-4 mb-10 leading-relaxed">
                 "We are frequently hired to fix other shops' mistakes. In our world, a failed weld isn't just an inconvenience—it's a massive liability. We ensure it's done right the first time."
               </p>
               <Link to="/about">
@@ -113,7 +227,7 @@ export const Home: React.FC = () => {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="absolute -top-4 -left-4 w-full h-full border-2 border-brand-green/40 z-0" />
+              <div className="absolute -top-4 -left-4 w-full h-full border-2 border-amber/30 z-0" />
               <img 
                 src="/gallery/Resized_dsc_0009.jpeg" 
                 alt="Welder at work" 
@@ -143,7 +257,7 @@ export const Home: React.FC = () => {
                 transition={{ delay: index * 0.1 }}
               >
                 <Card className="h-full flex flex-col">
-                  <div className="w-16 h-16 mb-6 bg-brand-green flex items-center justify-center rounded-sm green-glow shrink-0">
+                  <div className="w-16 h-16 mb-6 bg-amber flex items-center justify-center rounded-sm amber-glow-sm shrink-0">
                     <img 
                       src={service.icon} 
                       alt={service.title} 
@@ -155,7 +269,7 @@ export const Home: React.FC = () => {
                   <p className="text-weathered-iron mb-6 flex-grow">
                     {service.description}
                   </p>
-                  <Link to={`/services/${service.id}`} className="text-brand-green-light flex items-center group">
+                  <Link to={`/services/${service.id}`} className="text-amber-light flex items-center group">
                     Learn More <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-2" />
                   </Link>
                 </Card>
@@ -185,8 +299,8 @@ export const Home: React.FC = () => {
               { icon: Hammer, title: "Full Capability", text: "MIG, TIG, STICK, FLUX-CORE — every technique, every metal, every time." },
             ].map((item, index) => (
               <div key={index} className="text-center group">
-                <div className="w-20 h-20 bg-deep-iron border border-weathered-iron flex items-center justify-center mx-auto mb-6 transition-all group-hover:border-brand-green group-hover:green-glow">
-                  <item.icon className="w-10 h-10 text-brand-green-light" />
+                <div className="w-20 h-20 bg-charcoal-800 border border-steel-500 flex items-center justify-center mx-auto mb-6 transition-all group-hover:border-amber group-hover:amber-glow-sm">
+                  <item.icon className="w-10 h-10 text-amber-light" />
                 </div>
                 <h4 className="text-xl mb-4">{item.title}</h4>
                 <p className="text-weathered-iron">{item.text}</p>
@@ -234,23 +348,31 @@ export const Home: React.FC = () => {
       </section>
 
       {/* Contact CTA */}
-      <section className="py-24 bg-brand-green relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10" />
+      <section className="py-24 bg-charcoal-800 border-t border-steel-600/40 relative overflow-hidden">
+        {/* Dot texture */}
+        <div className="absolute inset-0 diamond-plate opacity-60" />
+        {/* Amber top border accent */}
+        <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-amber to-transparent" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <h2 className="text-4xl md:text-6xl mb-8 text-white">MINIMIZE YOUR DOWNTIME NOW.</h2>
-          <p className="text-2xl text-white/90 mb-12 font-display uppercase tracking-widest">
-            Whether you need industrial fabrication or emergency dispatch — our experienced team is ready.
+          <span className="inline-block text-amber-light font-sans text-xs font-semibold tracking-[0.3em] uppercase mb-4">Ready to Get Started?</span>
+          <h2 className="text-4xl md:text-6xl mb-6 text-white">Let's Get to Work.</h2>
+          <p className="text-lg text-steel-300 mb-12 max-w-2xl mx-auto font-body leading-relaxed">
+            Whether you need large-scale infrastructure repair or a simple gate weld — we take every job seriously and price every one fairly.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-6">
-            <a href={`tel:${COMPANY_INFO.phone}`}>
-              <Button size="lg" className="bg-white text-brand-green hover:bg-white/90 green-glow">
-                Call {COMPANY_INFO.phone}
-              </Button>
+          <div className="flex flex-col sm:flex-row justify-center gap-5">
+            <a
+              href={`tel:${COMPANY_INFO.phone}`}
+              id="cta-phone-bottom"
+              className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-amber hover:bg-amber-light text-charcoal-950 font-sans font-bold text-base tracking-widest uppercase rounded-sm transition-all amber-glow"
+            >
+              <Phone className="w-5 h-5 shrink-0" />
+              Call {COMPANY_INFO.phone}
             </a>
-            <Link to="/contact">
-              <Button size="lg" variant="secondary" className="border-white text-white hover:bg-white hover:text-brand-green">
-                Request Consultation
-              </Button>
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 border border-steel-400/60 hover:border-amber/60 text-steel-100 hover:text-white font-sans font-semibold text-base tracking-widest uppercase rounded-sm transition-all hover:bg-white/5"
+            >
+              Request a Consultation
             </Link>
           </div>
         </div>

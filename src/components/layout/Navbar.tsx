@@ -1,152 +1,270 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, Phone, Facebook, Mail } from 'lucide-react';
+import { Menu, X, Phone, Facebook, Mail, ChevronRight } from 'lucide-react';
 import { COMPANY_INFO } from '@/src/lib/constants';
 import { cn } from '@/src/lib/utils';
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
+  // Lock body scroll when drawer is open
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [isOpen]);
+
+  // Detect scroll to condense navbar
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  // Close drawer on route change
+  useEffect(() => { setIsOpen(false); }, [location.pathname]);
+
   const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Services', path: '/services' },
-    { name: 'Gallery', path: '/gallery' },
-    { name: 'Contact', path: '/contact' },
+    { name: 'Home',      path: '/'        },
+    { name: 'Services',  path: '/services' },
+    { name: 'Portfolio', path: '/gallery'  },
+    { name: 'About',     path: '/about'   },
+    { name: 'Contact',   path: '/contact' },
   ];
+
+  const isActive = (path: string) => location.pathname === path;
 
   return (
     <>
-      {/* Navbar Bar */}
-      <nav className="fixed top-0 left-0 w-full z-50 bg-iron-black/90 backdrop-blur-md border-b border-weathered-iron">
+      {/* ─── Sticky Navbar ─────────────────────────────────────────── */}
+      <nav
+        className={cn(
+          'fixed top-0 left-0 w-full z-50 transition-all duration-300',
+          scrolled
+            ? 'bg-charcoal-900/97 backdrop-blur-xl shadow-[0_4px_32px_rgba(0,0,0,0.6)] border-b border-steel-600/40'
+            : 'bg-gradient-to-b from-charcoal-950/90 to-transparent backdrop-blur-sm border-b border-white/5'
+        )}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
+          <div className={cn(
+            'flex justify-between items-center transition-all duration-300',
+            scrolled ? 'h-16' : 'h-20'
+          )}>
 
-            {/* Logo */}
-            <Link to="/" className="flex items-center group" onClick={() => setIsOpen(false)}>
-              <img
-                src="/gallery/Black-Red-Minimalist-Welding-Man-Logo-T2.png"
-                alt="KC Welding Logo"
-                className="h-32 w-auto mr-3 transition-transform group-hover:scale-110"
-                referrerPolicy="no-referrer"
-              />
-              <div className="flex flex-col">
-                <span className="font-display text-xl leading-none text-white">KC WELDING</span>
-                <span className="hidden sm:block text-[10px] tracking-[0.2em] text-brand-green-light uppercase">Industrial Authority</span>
+            {/* ── Logo ─────────────────────────────────────────────── */}
+            <Link
+              to="/"
+              className="flex items-center gap-3 group shrink-0"
+              aria-label="KC Welding — Home"
+            >
+              <div className="relative">
+                <img
+                  src="/gallery/Black-Red-Minimalist-Welding-Man-Logo-T2.png"
+                  alt="KC Welding Logo"
+                  className={cn(
+                    'w-auto transition-all duration-300 drop-shadow-lg',
+                    scrolled ? 'h-10' : 'h-14'
+                  )}
+                />
+                {/* Amber glow dot behind logo */}
+                <div className="absolute inset-0 -z-10 rounded-full bg-amber/10 blur-xl scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </div>
+              <div className="flex flex-col leading-none">
+                <span
+                  className={cn(
+                    'font-display tracking-widest transition-all duration-300 text-white',
+                    scrolled ? 'text-xl' : 'text-2xl'
+                  )}
+                >
+                  KC WELDING
+                </span>
+                <span className="hidden sm:block text-[10px] tracking-[0.25em] text-amber-light uppercase mt-0.5 font-sans">
+                  &amp; Fabrication
+                </span>
               </div>
             </Link>
 
-            {/* Desktop Nav */}
-            <div className="hidden md:flex items-center space-x-8">
+            {/* ── Desktop Nav Links ─────────────────────────────────── */}
+            <div className="hidden md:flex items-center gap-1">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
                   className={cn(
-                    'font-display text-sm uppercase tracking-widest transition-colors hover:text-brand-green-light',
-                    location.pathname === link.path ? 'text-brand-green-light' : 'text-white'
+                    'relative px-4 py-2 text-sm tracking-[0.15em] uppercase font-sans font-semibold transition-colors duration-200',
+                    isActive(link.path)
+                      ? 'text-amber-light'
+                      : 'text-steel-200 hover:text-white'
                   )}
                 >
                   {link.name}
+                  {/* Active underline */}
+                  {isActive(link.path) && (
+                    <motion.span
+                      layoutId="nav-indicator"
+                      className="absolute bottom-0 left-4 right-4 h-0.5 bg-amber rounded-full"
+                    />
+                  )}
                 </Link>
               ))}
-              <a
-                href={`tel:${COMPANY_INFO.phone}`}
-                className="flex items-center bg-brand-green text-white px-4 py-2 rounded-sm font-display text-sm hover:bg-brand-green-dark transition-all green-glow"
-              >
-                <Phone className="w-4 h-4 mr-2" />
-                {COMPANY_INFO.phone}
-              </a>
             </div>
 
-            {/* Mobile Hamburger */}
-            <button
-              className="md:hidden text-white p-2 hover:text-brand-green-light transition-colors z-[60] relative"
-              onClick={() => setIsOpen(!isOpen)}
-              aria-label="Toggle menu"
+            {/* ── Phone CTA ─────────────────────────────────────────── */}
+            <a
+              href={`tel:${COMPANY_INFO.phone}`}
+              id="nav-phone-cta"
+              className={cn(
+                'hidden md:flex items-center gap-2.5 px-5 py-2.5 rounded-sm font-sans font-bold text-sm tracking-widest uppercase',
+                'bg-amber hover:bg-amber-light text-charcoal-950 transition-all duration-200 amber-glow-sm',
+                'hover:shadow-[0_0_22px_rgba(212,137,26,0.55)]'
+              )}
             >
-              {isOpen ? <X size={28} /> : <Menu size={28} />}
+              <Phone className="w-4 h-4 shrink-0" />
+              <span className="leading-none">{COMPANY_INFO.phone}</span>
+            </a>
+
+            {/* ── Mobile Hamburger ──────────────────────────────────── */}
+            <button
+              className="md:hidden relative z-[60] p-2 text-white hover:text-amber-light transition-colors"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label={isOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isOpen}
+            >
+              <AnimatePresence mode="wait">
+                {isOpen ? (
+                  <motion.span key="close"
+                    initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.15 }}
+                  >
+                    <X size={26} />
+                  </motion.span>
+                ) : (
+                  <motion.span key="open"
+                    initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.15 }}
+                  >
+                    <Menu size={26} />
+                  </motion.span>
+                )}
+              </AnimatePresence>
             </button>
 
           </div>
         </div>
       </nav>
 
-      {/* Mobile Full-Screen Drawer — rendered outside nav so z-index works cleanly */}
+      {/* ─── Mobile Full-Screen Drawer ─────────────────────────────── */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ x: '100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '100%' }}
-            transition={{ type: 'tween', duration: 0.25 }}
-            className="fixed inset-0 z-[55] bg-iron-black flex flex-col md:hidden"
-          >
-            {/* Drawer Header */}
-            <div className="flex items-center justify-between px-6 h-20 border-b border-weathered-iron shrink-0">
-              <Link to="/" onClick={() => setIsOpen(false)} className="flex items-center">
-                <img
-                  src="/gallery/Black-Red-Minimalist-Welding-Man-Logo-T2.png"
-                  alt="KC Welding"
-                  className="h-28 w-auto mr-3"
-                  referrerPolicy="no-referrer"
-                />
-                <span className="font-display text-xl text-white">KC WELDING</span>
-              </Link>
-              <button
-                onClick={() => setIsOpen(false)}
-                className="text-white hover:text-brand-green-light p-2 transition-colors"
-              >
-                <X size={28} />
-              </button>
-            </div>
+          <>
+            {/* Backdrop */}
+            <motion.div
+              key="backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[54] bg-charcoal-950/60 backdrop-blur-sm md:hidden"
+              onClick={() => setIsOpen(false)}
+            />
 
-            {/* Nav Links */}
-            <div className="flex flex-col flex-1 overflow-y-auto px-6 py-6">
-              {navLinks.map((link, i) => (
-                <motion.div
-                  key={link.path}
-                  initial={{ opacity: 0, x: 24 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.06 }}
+            {/* Panel */}
+            <motion.aside
+              key="drawer"
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'tween', duration: 0.28, ease: [0.4, 0, 0.2, 1] }}
+              className="fixed top-0 right-0 bottom-0 w-[85vw] max-w-[360px] z-[55] bg-charcoal-900 flex flex-col md:hidden border-l border-steel-600/40 shadow-2xl"
+            >
+              {/* Drawer Header */}
+              <div className="flex items-center justify-between px-6 h-20 border-b border-steel-600/30 shrink-0">
+                <Link to="/" onClick={() => setIsOpen(false)} className="flex items-center gap-3">
+                  <img
+                    src="/gallery/Black-Red-Minimalist-Welding-Man-Logo-T2.png"
+                    alt="KC Welding"
+                    className="h-12 w-auto"
+                  />
+                  <div className="flex flex-col leading-none">
+                    <span className="font-display text-xl tracking-widest text-white">KC WELDING</span>
+                    <span className="text-[9px] tracking-[0.2em] text-amber-light uppercase font-sans">&amp; Fabrication</span>
+                  </div>
+                </Link>
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="p-2 text-steel-300 hover:text-white transition-colors"
+                  aria-label="Close menu"
                 >
-                  <Link
-                    to={link.path}
-                    onClick={() => setIsOpen(false)}
-                    className={cn(
-                      'block font-display text-4xl uppercase tracking-tight py-4 border-b border-weathered-iron/30 transition-colors',
-                      location.pathname === link.path
-                        ? 'text-brand-green-light'
-                        : 'text-white hover:text-brand-green-light'
-                    )}
-                  >
-                    {link.name}
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Drawer Footer */}
-            <div className="px-6 py-6 border-t border-weathered-iron shrink-0 space-y-4">
-              <a
-                href={`tel:${COMPANY_INFO.phone}`}
-                className="flex items-center justify-center w-full bg-brand-green text-white py-4 font-display text-lg tracking-widest hover:bg-brand-green-dark transition-colors green-glow"
-              >
-                <Phone className="w-5 h-5 mr-3" />
-                {COMPANY_INFO.phone}
-              </a>
-              <div className="flex justify-center space-x-8">
-                <a href={COMPANY_INFO.facebook} target="_blank" rel="noreferrer" className="text-weathered-iron hover:text-brand-green-light transition-colors">
-                  <Facebook size={22} />
-                </a>
-                <a href={`mailto:${COMPANY_INFO.email}`} className="text-weathered-iron hover:text-brand-green-light transition-colors">
-                  <Mail size={22} />
-                </a>
+                  <X size={24} />
+                </button>
               </div>
-            </div>
-          </motion.div>
+
+              {/* Nav Links */}
+              <nav className="flex flex-col flex-1 overflow-y-auto px-4 py-4">
+                {navLinks.map((link, i) => (
+                  <motion.div
+                    key={link.path}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.06 + 0.05 }}
+                  >
+                    <Link
+                      to={link.path}
+                      onClick={() => setIsOpen(false)}
+                      className={cn(
+                        'flex items-center justify-between py-4 px-2 border-b border-steel-600/20 transition-colors group',
+                        isActive(link.path)
+                          ? 'text-amber-light'
+                          : 'text-steel-100 hover:text-white'
+                      )}
+                    >
+                      <span className="font-display text-3xl tracking-wide">{link.name}</span>
+                      <ChevronRight
+                        className={cn(
+                          'w-5 h-5 transition-all',
+                          isActive(link.path) ? 'text-amber' : 'text-steel-500 group-hover:text-steel-300 group-hover:translate-x-1'
+                        )}
+                      />
+                    </Link>
+                  </motion.div>
+                ))}
+              </nav>
+
+              {/* Drawer Footer */}
+              <div className="px-6 py-6 border-t border-steel-600/30 shrink-0 space-y-4 bg-charcoal-950/60">
+                <a
+                  href={`tel:${COMPANY_INFO.phone}`}
+                  id="nav-mobile-phone-cta"
+                  className="flex items-center justify-center gap-3 w-full bg-amber hover:bg-amber-light text-charcoal-950 py-4 font-sans font-bold text-base tracking-widest uppercase rounded-sm transition-all amber-glow"
+                >
+                  <Phone className="w-5 h-5" />
+                  {COMPANY_INFO.phone}
+                </a>
+                <div className="flex justify-center gap-6">
+                  <a
+                    href={COMPANY_INFO.facebook}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-steel-400 hover:text-amber-light transition-colors"
+                    aria-label="KC Welding on Facebook"
+                  >
+                    <Facebook size={20} />
+                  </a>
+                  <a
+                    href={`mailto:${COMPANY_INFO.email}`}
+                    className="text-steel-400 hover:text-amber-light transition-colors"
+                    aria-label="Email KC Welding"
+                  >
+                    <Mail size={20} />
+                  </a>
+                </div>
+                <p className="text-center text-steel-500 text-xs font-sans">
+                  Licensed LLC &nbsp;·&nbsp; Est. {COMPANY_INFO.established}&nbsp;·&nbsp; Central Louisiana
+                </p>
+              </div>
+            </motion.aside>
+          </>
         )}
       </AnimatePresence>
     </>
