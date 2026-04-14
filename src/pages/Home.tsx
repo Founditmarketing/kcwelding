@@ -585,71 +585,212 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Gallery Preview */}
-      <section className="py-24 bg-deep-iron">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-12">
-            <SectionHeading 
-              title="OUR WORK" 
-              subtitle="Gallery" 
-              className="mb-0"
-            />
-            <Link to="/gallery" className="hidden md:block">
-              <Button variant="outline">View Full Gallery</Button>
+      {/* ═══════════════════════════════════════════════════════════
+          PORTFOLIO SECTION
+      ════════════════════════════════════════════════════════════ */}
+      <section id="portfolio" className="py-24 bg-charcoal-950 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-amber/50 to-transparent" />
+        <div className="absolute inset-0 diamond-plate opacity-30" />
+
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
+
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-col md:flex-row justify-between items-start md:items-end mb-14 gap-6"
+          >
+            <div>
+              <span className="inline-flex items-center gap-3 mb-4">
+                <span className="accent-bar" />
+                <span className="text-amber-light font-sans text-xs font-semibold tracking-[0.3em] uppercase">Our Work</span>
+              </span>
+              <h2 className="text-5xl md:text-6xl">Recent Projects</h2>
+            </div>
+            <Link
+              to="/gallery"
+              className="inline-flex items-center gap-2 text-amber-light font-sans text-sm font-semibold tracking-wide hover:text-white transition-colors shrink-0 group"
+            >
+              View Full Gallery <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Link>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {GALLERY_IMAGES.slice(0, 8).map((img, index) => (
+          </motion.div>
+
+          {/* Project Cards Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+
+            {/* Standard project cards */}
+            {[
+              {
+                img: GALLERY_IMAGES[0],
+                type: 'Custom Gate',
+                track: 'Local & Community',
+                desc: 'Fabricated and installed a custom ornamental steel driveway gate for a residential property.',
+              },
+              {
+                img: GALLERY_IMAGES[2],
+                type: 'Pipeline Repair',
+                track: 'Infrastructure',
+                desc: 'Emergency field repair on a ruptured industrial pipeline — on-site, same day, passed inspection.',
+              },
+              {
+                img: GALLERY_IMAGES[4],
+                type: 'Structural Steel',
+                track: 'Infrastructure',
+                desc: 'Repaired and reinforced a cracked structural beam at an active processing facility.',
+              },
+              {
+                img: GALLERY_IMAGES[6],
+                type: 'Custom Sign Frame',
+                track: 'Local & Community',
+                desc: 'Welded and powder-coated a heavy-duty steel sign frame for a local retail business.',
+              },
+              {
+                img: GALLERY_IMAGES[8],
+                type: 'Equipment Repair',
+                track: 'Infrastructure',
+                desc: 'Field rig welding on a down excavator — got the machine operational within hours.',
+              },
+              {
+                img: GALLERY_IMAGES[10],
+                type: 'Fence Installation',
+                track: 'Local & Community',
+                desc: 'Full perimeter fencing installed for a residential ranch property — post setting, rails, and finish welding.',
+              },
+            ].map(({ img, type, track, desc }, i) => (
               <motion.div
-                key={index}
-                whileHover={{ scale: 1.05 }}
-                className="aspect-square overflow-hidden border border-weathered-iron"
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.07 }}
+                className="group bg-charcoal-800 border border-steel-600/40 rounded-sm overflow-hidden hover:border-amber/35 transition-colors"
               >
-                <img 
-                  src={img} 
-                  alt={`Gallery ${index}`} 
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
-                  referrerPolicy="no-referrer"
-                />
+                {/* Image */}
+                <div className="relative h-52 overflow-hidden bg-charcoal-700">
+                  <img
+                    src={img}
+                    alt={type}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    referrerPolicy="no-referrer"
+                  />
+                  {/* Track badge */}
+                  <span className={`absolute top-3 left-3 text-[10px] font-sans font-semibold tracking-[0.2em] uppercase px-2.5 py-1 rounded-sm ${
+                    track === 'Infrastructure'
+                      ? 'bg-charcoal-950/90 text-amber-light border border-amber/30'
+                      : 'bg-charcoal-950/90 text-steel-200 border border-steel-500/40'
+                  }`}>
+                    {track}
+                  </span>
+                </div>
+                {/* Copy */}
+                <div className="p-5">
+                  <p className="font-display text-lg text-white tracking-wide mb-1">{type}</p>
+                  <p className="text-steel-400 font-body text-sm leading-relaxed">{desc}</p>
+                </div>
               </motion.div>
             ))}
           </div>
-          <div className="mt-8 text-center md:hidden">
-            <Link to="/gallery">
-              <Button variant="outline">View Full Gallery</Button>
-            </Link>
-          </div>
-        </div>
-      </section>
 
-      {/* Contact CTA */}
-      <section className="py-24 bg-charcoal-800 border-t border-steel-600/40 relative overflow-hidden">
-        {/* Dot texture */}
-        <div className="absolute inset-0 diamond-plate opacity-60" />
-        {/* Amber top border accent */}
-        <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-amber to-transparent" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <span className="inline-block text-amber-light font-sans text-xs font-semibold tracking-[0.3em] uppercase mb-4">Ready to Get Started?</span>
-          <h2 className="text-4xl md:text-6xl mb-6 text-white">Let's Get to Work.</h2>
-          <p className="text-lg text-steel-300 mb-12 max-w-2xl mx-auto font-body leading-relaxed">
-            Whether you need large-scale infrastructure repair or a simple gate weld — we take every job seriously and price every one fairly.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-5">
-            <a
-              href={`tel:${COMPANY_INFO.phone}`}
-              id="cta-phone-bottom"
-              className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-amber hover:bg-amber-light text-charcoal-950 font-sans font-bold text-base tracking-widest uppercase rounded-sm transition-all amber-glow"
-            >
-              <Phone className="w-5 h-5 shrink-0" />
-              Call {COMPANY_INFO.phone}
-            </a>
-            <Link
-              to="/contact"
-              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 border border-steel-400/60 hover:border-amber/60 text-steel-100 hover:text-white font-sans font-semibold text-base tracking-widest uppercase rounded-sm transition-all hover:bg-white/5"
-            >
-              Request a Consultation
-            </Link>
+          {/* Before & After Cards — full width, 2-up */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-14">
+
+            {[
+              {
+                type: 'Farm Equipment Repair',
+                track: 'Local & Community',
+                desc: 'Cracked loader arm bracket — welded, ground, and reinforced. Back in the field the same week.',
+                beforeImg: GALLERY_IMAGES[14],
+                afterImg:  GALLERY_IMAGES[15],
+              },
+              {
+                type: 'Building Steel Connection',
+                track: 'Infrastructure',
+                desc: 'Failed column connection at a warehouse — repaired and brought back to spec with zero downtime to operations.',
+                beforeImg: GALLERY_IMAGES[20],
+                afterImg:  GALLERY_IMAGES[21],
+              },
+            ].map(({ type, track, desc, beforeImg, afterImg }, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-charcoal-800 border border-steel-600/40 rounded-sm overflow-hidden hover:border-amber/35 transition-colors"
+              >
+                {/* Before / After image split */}
+                <div className="grid grid-cols-2 h-52">
+                  <div className="relative overflow-hidden bg-charcoal-700">
+                    <img
+                      src={beforeImg}
+                      alt={`${type} — Before`}
+                      className="w-full h-full object-cover grayscale"
+                      referrerPolicy="no-referrer"
+                    />
+                    <span className="absolute bottom-2 left-2 text-[9px] font-sans font-bold tracking-[0.2em] uppercase bg-charcoal-950/85 text-steel-300 border border-steel-600/40 px-2 py-0.5 rounded-sm">
+                      Before
+                    </span>
+                  </div>
+                  <div className="relative overflow-hidden bg-charcoal-700 border-l border-steel-600/30">
+                    <img
+                      src={afterImg}
+                      alt={`${type} — After`}
+                      className="w-full h-full object-cover"
+                      referrerPolicy="no-referrer"
+                    />
+                    <span className="absolute bottom-2 right-2 text-[9px] font-sans font-bold tracking-[0.2em] uppercase bg-amber/90 text-charcoal-950 px-2 py-0.5 rounded-sm">
+                      After
+                    </span>
+                  </div>
+                </div>
+                {/* Copy */}
+                <div className="p-5 flex items-start justify-between gap-4">
+                  <div>
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className={`text-[9px] font-sans font-semibold tracking-[0.2em] uppercase px-2 py-0.5 rounded-sm ${
+                        track === 'Infrastructure'
+                          ? 'bg-amber/10 text-amber border border-amber/25'
+                          : 'bg-steel-600/20 text-steel-300 border border-steel-500/30'
+                      }`}>{track}</span>
+                      <span className="text-steel-500 font-sans text-[9px] uppercase tracking-widest">Before &amp; After</span>
+                    </div>
+                    <p className="font-display text-lg text-white tracking-wide mb-1">{type}</p>
+                    <p className="text-steel-400 font-body text-sm leading-relaxed">{desc}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
+
+          {/* Portfolio CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <p className="text-steel-300 font-body text-lg mb-6">
+              Have a project in mind? <span className="text-white font-semibold">Let's talk.</span>
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <a
+                href={`tel:${COMPANY_INFO.phone}`}
+                id="portfolio-cta-call"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-amber hover:bg-amber-light text-charcoal-950 font-sans font-bold text-base tracking-widest uppercase rounded-sm transition-all amber-glow btn-pulse"
+              >
+                <Phone className="w-5 h-5 shrink-0" />
+                Call {COMPANY_INFO.phone}
+              </a>
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center gap-2.5 px-8 py-4 border border-steel-400/60 hover:border-amber/60 text-steel-100 hover:text-white font-sans font-semibold text-base tracking-widest uppercase rounded-sm transition-all hover:bg-white/5 group"
+              >
+                Request a Quote <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </div>
+          </motion.div>
+
         </div>
       </section>
     </div>
