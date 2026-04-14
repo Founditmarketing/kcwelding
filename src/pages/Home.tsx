@@ -229,9 +229,9 @@ export const Home: React.FC = () => {
             >
               <div className="absolute -top-4 -left-4 w-full h-full border-2 border-amber/30 z-0" />
               <img 
-                src="/gallery/Resized_dsc_0009.jpeg" 
-                alt="Welder at work" 
-                className="relative z-10 w-full h-[500px] object-cover forge-glow"
+                src="/gallery/KC-Welding-3-scaled.jpeg" 
+                alt="Welder working an active arc inside industrial equipment" 
+                className="relative z-10 w-full h-[500px] object-cover object-center forge-glow"
                 referrerPolicy="no-referrer"
               />
             </motion.div>
@@ -692,76 +692,7 @@ export const Home: React.FC = () => {
             ))}
           </div>
 
-          {/* Before & After Cards — full width, 2-up */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-14">
 
-            {[
-              {
-                type: 'Farm Equipment Repair',
-                track: 'Local & Community',
-                desc: 'Cracked loader arm bracket — welded, ground, and reinforced. Back in the field the same week.',
-                beforeImg: GALLERY_IMAGES[14],
-                afterImg:  GALLERY_IMAGES[15],
-              },
-              {
-                type: 'Building Steel Connection',
-                track: 'Infrastructure',
-                desc: 'Failed column connection at a warehouse — repaired and brought back to spec with zero downtime to operations.',
-                beforeImg: GALLERY_IMAGES[20],
-                afterImg:  GALLERY_IMAGES[21],
-              },
-            ].map(({ type, track, desc, beforeImg, afterImg }, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="bg-charcoal-800 border border-steel-600/40 rounded-sm overflow-hidden hover:border-amber/35 transition-colors"
-              >
-                {/* Before / After image split */}
-                <div className="grid grid-cols-2 h-52">
-                  <div className="relative overflow-hidden bg-charcoal-700">
-                    <img
-                      src={beforeImg}
-                      alt={`${type} — Before`}
-                      className="w-full h-full object-cover grayscale"
-                      referrerPolicy="no-referrer"
-                    />
-                    <span className="absolute bottom-2 left-2 text-[9px] font-sans font-bold tracking-[0.2em] uppercase bg-charcoal-950/85 text-steel-300 border border-steel-600/40 px-2 py-0.5 rounded-sm">
-                      Before
-                    </span>
-                  </div>
-                  <div className="relative overflow-hidden bg-charcoal-700 border-l border-steel-600/30">
-                    <img
-                      src={afterImg}
-                      alt={`${type} — After`}
-                      className="w-full h-full object-cover"
-                      referrerPolicy="no-referrer"
-                    />
-                    <span className="absolute bottom-2 right-2 text-[9px] font-sans font-bold tracking-[0.2em] uppercase bg-amber/90 text-charcoal-950 px-2 py-0.5 rounded-sm">
-                      After
-                    </span>
-                  </div>
-                </div>
-                {/* Copy */}
-                <div className="p-5 flex items-start justify-between gap-4">
-                  <div>
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className={`text-[9px] font-sans font-semibold tracking-[0.2em] uppercase px-2 py-0.5 rounded-sm ${
-                        track === 'Infrastructure'
-                          ? 'bg-amber/10 text-amber border border-amber/25'
-                          : 'bg-steel-600/20 text-steel-300 border border-steel-500/30'
-                      }`}>{track}</span>
-                      <span className="text-steel-500 font-sans text-[9px] uppercase tracking-widest">Before &amp; After</span>
-                    </div>
-                    <p className="font-display text-lg text-white tracking-wide mb-1">{type}</p>
-                    <p className="text-steel-400 font-body text-sm leading-relaxed">{desc}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
 
           {/* Portfolio CTA */}
           <motion.div
