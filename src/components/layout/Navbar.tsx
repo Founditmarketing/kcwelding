@@ -47,7 +47,7 @@ export const Navbar: React.FC = () => {
             : 'bg-gradient-to-b from-charcoal-950/90 to-transparent backdrop-blur-sm border-b border-white/5'
         )}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className={cn(
             'flex justify-between items-center transition-all duration-300',
             scrolled ? 'h-16' : 'h-20'
@@ -56,7 +56,7 @@ export const Navbar: React.FC = () => {
             {/* ── Logo ─────────────────────────────────────────────── */}
             <Link
               to="/"
-              className="flex items-center gap-3 group shrink-0"
+              className="flex items-center gap-1 group shrink-0"
               aria-label="KC Welding — Home"
             >
               <div className="relative">
@@ -65,13 +65,19 @@ export const Navbar: React.FC = () => {
                   alt="KC Welding Logo"
                   className={cn(
                     'w-auto transition-all duration-300 drop-shadow-lg',
-                    scrolled ? 'h-10' : 'h-14'
+                    scrolled ? 'h-20 translate-y-1' : 'h-32 translate-y-3'
                   )}
                 />
                 {/* Amber glow dot behind logo */}
-                <div className="absolute inset-0 -z-10 rounded-full bg-amber/10 blur-xl scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className={cn(
+                  "absolute inset-0 -z-10 rounded-full bg-amber/10 blur-xl scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-500",
+                  scrolled ? "translate-y-1" : "translate-y-3"
+                )} />
               </div>
-              <div className="flex flex-col leading-none">
+              <div className={cn(
+                "flex flex-col leading-none transition-all duration-300 z-10",
+                scrolled ? "-ml-3" : "-ml-8"
+              )}>
                 <span
                   className={cn(
                     'font-display tracking-widest transition-all duration-300 text-white',

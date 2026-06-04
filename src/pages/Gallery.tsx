@@ -1,11 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, Maximize2 } from 'lucide-react';
+import { X, Maximize2, ChevronLeft, ChevronRight } from 'lucide-react';
 import { GALLERY_IMAGES } from '@/src/lib/constants';
 import { SectionHeading } from '@/src/components/ui/SectionHeading';
 
 export const Gallery: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  const selectedIndex = selectedImage ? GALLERY_IMAGES.indexOf(selectedImage) : -1;
+
+  const handleNext = useCallback((e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    if (selectedIndex !== -1) {
+      const nextIndex = (selectedIndex + 1) % GALLERY_IMAGES.length;
+      setSelectedImage(GALLERY_IMAGES[nextIndex]);
+    }
+  }, [selectedIndex]);
+
+  const handlePrev = useCallback((e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    if (selectedIndex !== -1) {
+      const prevIndex = (selectedIndex - 1 + GALLERY_IMAGES.length) % GALLERY_IMAGES.length;
+      setSelectedImage(GALLERY_IMAGES[prevIndex]);
+    }
+  }, [selectedIndex]);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!selectedImage) return;
+      if (e.key === 'ArrowRight') handleNext();
+      if (e.key === 'ArrowLeft') handlePrev();
+      if (e.key === 'Escape') setSelectedImage(null);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedImage, handleNext, handlePrev]);
 
   return (
     <div className="pt-20">
@@ -72,21 +101,37 @@ export const Gallery: React.FC = () => {
             onClick={() => setSelectedImage(null)}
           >
             <button 
-              className="absolute top-6 right-6 text-white hover:text-brand-green-light transition-colors z-10"
-              onClick={() => setSelectedImage(null)}
+              className="absolute top-6 right-6 text-white hover:text-brand-green-light transition-colors z-50 p-2 bg-black/40 md:bg-transparent rounded-full"
+              onClick={(e) => { e.stopPropagation(); setSelectedImage(null); }}
             >
               <X size={40} />
             </button>
+
+            <button 
+              className="absolute left-4 md:left-10 top-1/2 -translate-y-1/2 text-white hover:text-brand-green-light transition-colors z-50 p-3 bg-black/50 hover:bg-black/80 rounded-full"
+              onClick={handlePrev}
+            >
+              <ChevronLeft size={40} />
+            </button>
+
             <motion.img
-              initial={{ scale: 0.9, opacity: 0 }}
+              key={selectedImage}
+              initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.2 }}
               src={selectedImage}
               alt="Expanded view"
-              className="max-w-full max-h-full object-contain border-2 border-weathered-iron forge-glow"
+              className="max-w-[85vw] md:max-w-[80vw] max-h-[80vh] md:max-h-[85vh] object-contain border-2 border-weathered-iron forge-glow"
               onClick={(e) => e.stopPropagation()}
               referrerPolicy="no-referrer"
             />
+
+            <button 
+              className="absolute right-4 md:right-10 top-1/2 -translate-y-1/2 text-white hover:text-brand-green-light transition-colors z-50 p-3 bg-black/50 hover:bg-black/80 rounded-full"
+              onClick={handleNext}
+            >
+              <ChevronRight size={40} />
+            </button>
           </motion.div>
         )}
       </AnimatePresence>

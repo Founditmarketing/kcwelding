@@ -27,16 +27,16 @@ export const Footer: React.FC = () => {
 
           {/* ── Brand column ─────────────────────────────────── */}
           <div className="space-y-6 sm:col-span-2 lg:col-span-1">
-            <Link to="/" className="flex items-center gap-3 group" aria-label="KC Welding — Home">
+            <Link to="/" className="flex items-center group" aria-label="KC Welding — Home">
               <img
                 src="/gallery/Black-Red-Minimalist-Welding-Man-Logo-T2.png"
                 alt="KC Welding Logo"
-                className="h-12 w-auto transition-opacity group-hover:opacity-80"
+                className="h-28 w-auto transition-opacity group-hover:opacity-80 drop-shadow-md"
                 referrerPolicy="no-referrer"
               />
-              <div className="flex flex-col leading-none">
-                <span className="font-display text-xl tracking-widest text-white">KC WELDING</span>
-                <span className="text-[9px] tracking-[0.25em] text-amber-light uppercase font-sans mt-0.5">&amp; Fabrication</span>
+              <div className="flex flex-col leading-none -ml-3 z-10">
+                <span className="font-display text-2xl tracking-widest text-white">KC WELDING</span>
+                <span className="text-[10px] tracking-[0.25em] text-amber-light uppercase font-sans mt-0.5">&amp; Fabrication</span>
               </div>
             </Link>
 
