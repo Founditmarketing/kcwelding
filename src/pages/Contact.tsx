@@ -73,7 +73,7 @@ export const Contact: React.FC = () => {
             </p>
           </div>
           <a
-            href={`tel:${COMPANY_INFO.phone}`}
+            href={`tel:${COMPANY_INFO.phoneRaw}`}
             className="flex items-center gap-2 text-amber-light font-sans font-bold text-sm tracking-wide hover:text-white transition-colors shrink-0"
           >
             <Phone className="w-4 h-4" /> {COMPANY_INFO.phone}
@@ -114,7 +114,7 @@ export const Contact: React.FC = () => {
                   <div>
                     <p className="text-steel-400 font-sans text-xs font-semibold tracking-[0.2em] uppercase mb-1">Call or Text</p>
                     <a
-                      href={`tel:${COMPANY_INFO.phone}`}
+                      href={`tel:${COMPANY_INFO.phoneRaw}`}
                       id="contact-phone-link"
                       className="font-display text-4xl text-white hover:text-amber-light transition-colors tracking-wide"
                     >
@@ -210,7 +210,7 @@ export const Contact: React.FC = () => {
                       We&apos;ll be in touch shortly. For the fastest response, give us a call directly.
                     </p>
                     <a
-                      href={`tel:${COMPANY_INFO.phone}`}
+                      href={`tel:${COMPANY_INFO.phoneRaw}`}
                       className="mt-2 inline-flex items-center gap-2.5 px-6 py-3 bg-amber hover:bg-amber-light text-charcoal-950 font-sans font-bold text-sm tracking-widest uppercase rounded-sm transition-all amber-glow"
                     >
                       <Phone className="w-4 h-4" /> {COMPANY_INFO.phone}
@@ -307,7 +307,7 @@ export const Contact: React.FC = () => {
                       <Zap className="w-4 h-4 text-amber shrink-0 mt-0.5" />
                       <p className="text-steel-400 font-sans text-xs leading-relaxed">
                         <span className="font-semibold text-steel-200">Emergency or time-sensitive?</span> Skip the form and call us directly at{' '}
-                        <a href={`tel:${COMPANY_INFO.phone}`} className="text-amber-light hover:text-amber font-semibold transition-colors">
+                        <a href={`tel:${COMPANY_INFO.phoneRaw}`} className="text-amber-light hover:text-amber font-semibold transition-colors">
                           {COMPANY_INFO.phone}
                         </a>
                         .

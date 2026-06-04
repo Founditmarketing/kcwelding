@@ -122,7 +122,7 @@ export const Footer: React.FC = () => {
               {/* Phone — prominent */}
               <li>
                 <a
-                  href={`tel:${COMPANY_INFO.phone}`}
+                  href={`tel:${COMPANY_INFO.phoneRaw}`}
                   className="flex items-center gap-3 group"
                   aria-label={`Call KC Welding at ${COMPANY_INFO.phone}`}
                 >

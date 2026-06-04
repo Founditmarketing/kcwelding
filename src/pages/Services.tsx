@@ -46,7 +46,7 @@ export const Services: React.FC = () => {
                   ))}
                 </div>
                 <div className="mt-12">
-                  <a href={`tel:${COMPANY_INFO.phone}`}>
+                  <a href={`tel:${COMPANY_INFO.phoneRaw}`}>
                     <Button size="lg">Request Quote for {service.title}</Button>
                   </a>
                 </div>

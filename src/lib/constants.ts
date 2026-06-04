@@ -2,6 +2,7 @@ export const COMPANY_INFO = {
   name: "KC Welding",
   tagline: "Serving Central Louisiana since 2021",
   phone: "573-301-6131",
+  phoneRaw: "5733016131",
   email: "kcwelding175@gmail.com",
   facebook: "https://www.facebook.com/profile.php?id=100089200659448",
   location: "Central Louisiana (mobile services)",

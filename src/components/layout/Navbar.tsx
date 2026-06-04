@@ -119,7 +119,7 @@ export const Navbar: React.FC = () => {
 
             {/* ── Phone CTA ─────────────────────────────────────────── */}
             <a
-              href={`tel:${COMPANY_INFO.phone}`}
+              href={`tel:${COMPANY_INFO.phoneRaw}`}
               id="nav-phone-cta"
               className={cn(
                 'hidden md:flex items-center gap-2.5 px-5 py-2.5 rounded-sm font-sans font-bold text-sm tracking-widest uppercase',
@@ -240,7 +240,7 @@ export const Navbar: React.FC = () => {
               {/* Drawer Footer */}
               <div className="px-6 py-6 border-t border-steel-600/30 shrink-0 space-y-4 bg-charcoal-950/60">
                 <a
-                  href={`tel:${COMPANY_INFO.phone}`}
+                  href={`tel:${COMPANY_INFO.phoneRaw}`}
                   id="nav-mobile-phone-cta"
                   className="flex items-center justify-center gap-3 w-full bg-amber hover:bg-amber-light text-charcoal-950 py-4 font-sans font-bold text-base tracking-widest uppercase rounded-sm transition-all amber-glow"
                 >

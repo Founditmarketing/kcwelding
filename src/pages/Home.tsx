@@ -127,7 +127,7 @@ export const Home: React.FC = () => {
           >
             {/* Primary — Call */}
             <a
-              href={`tel:${COMPANY_INFO.phone}`}
+              href={`tel:${COMPANY_INFO.phoneRaw}`}
               id="hero-cta-call"
               className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-amber hover:bg-amber-light text-charcoal-950 font-sans font-bold text-base tracking-widest uppercase rounded-sm transition-all duration-200 amber-glow btn-pulse"
             >
@@ -568,7 +568,7 @@ export const Home: React.FC = () => {
               </div>
               <div className="flex flex-col items-center lg:items-end gap-4 shrink-0">
                 <a
-                  href={`tel:${COMPANY_INFO.phone}`}
+                  href={`tel:${COMPANY_INFO.phoneRaw}`}
                   id="trust-phone-cta"
                   className="inline-flex items-center gap-3 px-10 py-5 bg-amber hover:bg-amber-light text-charcoal-950 font-sans font-bold text-xl tracking-wider rounded-sm transition-all amber-glow btn-pulse"
                 >
@@ -706,7 +706,7 @@ export const Home: React.FC = () => {
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <a
-                href={`tel:${COMPANY_INFO.phone}`}
+                href={`tel:${COMPANY_INFO.phoneRaw}`}
                 id="portfolio-cta-call"
                 className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-amber hover:bg-amber-light text-charcoal-950 font-sans font-bold text-base tracking-widest uppercase rounded-sm transition-all amber-glow btn-pulse"
               >
