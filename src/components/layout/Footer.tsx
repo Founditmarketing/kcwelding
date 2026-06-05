@@ -31,7 +31,7 @@ export const Footer: React.FC = () => {
               <img
                 src="/KC Welding logo.jpeg"
                 alt="KC Welding Logo"
-                className="h-16 w-auto transition-opacity group-hover:opacity-80 drop-shadow-md rounded-full object-cover"
+                className="h-16 w-auto transition-opacity group-hover:opacity-80 drop-shadow-md rounded-2xl object-cover"
                 referrerPolicy="no-referrer"
               />
               <div className="flex flex-col leading-none ml-2 z-10">

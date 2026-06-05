@@ -64,7 +64,7 @@ export const Navbar: React.FC = () => {
                   src="/KC Welding logo.jpeg"
                   alt="KC Welding Logo"
                   className={cn(
-                    'w-auto transition-all duration-300 drop-shadow-lg rounded-full object-cover',
+                    'w-auto transition-all duration-300 drop-shadow-lg rounded-2xl object-cover',
                     scrolled ? 'h-12' : 'h-16'
                   )}
                 />
@@ -189,7 +189,7 @@ export const Navbar: React.FC = () => {
                   <img
                     src="/KC Welding logo.jpeg"
                     alt="KC Welding"
-                    className="h-10 w-auto rounded-full object-cover"
+                    className="h-10 w-auto rounded-2xl object-cover"
                   />
                   <div className="flex flex-col leading-none">
                     <span className="font-display text-xl tracking-widest text-white">KC WELDING</span>
