@@ -29,9 +29,9 @@ export const Footer: React.FC = () => {
           <div className="space-y-6 sm:col-span-2 lg:col-span-1">
             <Link to="/" className="flex items-center group" aria-label="KC Welding — Home">
               <img
-                src="/KC Welding logo.jpeg"
+                src="/new kc logo.png"
                 alt="KC Welding Logo"
-                className="h-16 w-auto transition-opacity group-hover:opacity-80 drop-shadow-md rounded-2xl object-cover"
+                className="h-16 w-auto transition-opacity group-hover:opacity-80 drop-shadow-md"
                 referrerPolicy="no-referrer"
               />
               <div className="flex flex-col leading-none ml-2 z-10">

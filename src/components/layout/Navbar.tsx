@@ -61,10 +61,10 @@ export const Navbar: React.FC = () => {
             >
               <div className="relative">
                 <img
-                  src="/KC Welding logo.jpeg"
+                  src="/new kc logo.png"
                   alt="KC Welding Logo"
                   className={cn(
-                    'w-auto transition-all duration-300 drop-shadow-lg rounded-2xl object-cover',
+                    'w-auto transition-all duration-300 drop-shadow-lg',
                     scrolled ? 'h-12' : 'h-16'
                   )}
                 />
@@ -187,9 +187,9 @@ export const Navbar: React.FC = () => {
               <div className="flex items-center justify-between px-6 h-20 border-b border-steel-600/30 shrink-0">
                 <Link to="/" onClick={() => setIsOpen(false)} className="flex items-center gap-3">
                   <img
-                    src="/KC Welding logo.jpeg"
+                    src="/new kc logo.png"
                     alt="KC Welding"
-                    className="h-10 w-auto rounded-2xl object-cover"
+                    className="h-10 w-auto"
                   />
                   <div className="flex flex-col leading-none">
                     <span className="font-display text-xl tracking-widest text-white">KC WELDING</span>
