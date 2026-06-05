@@ -17,16 +17,42 @@ export const Contact: React.FC = () => {
     message:     '',
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Contact form submitted:', formData);
-    setSubmitted(true);
-    setFormData({ name: '', phone: '', email: '', projectType: '', message: '' });
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: `Project Type: ${formData.projectType || 'Not specified'}\n\n${formData.message}`,
+        }),
+      });
+
+      const result = await response.json();
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to send message.');
+      }
+
+      setSubmitted(true);
+      setFormData({ name: '', phone: '', email: '', projectType: '', message: '' });
+    } catch (err: any) {
+      setError(err.message || 'Something went wrong. Please try again or call us directly.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -314,14 +340,32 @@ export const Contact: React.FC = () => {
                       </p>
                     </div>
 
+                    {/* Error Display */}
+                    {error && (
+                      <div className="text-red-500 font-sans text-sm bg-red-500/10 border border-red-500/30 rounded-sm px-4 py-3 flex items-center gap-2">
+                        <AlertTriangle className="w-4 h-4 shrink-0" />
+                        <span>{error}</span>
+                      </div>
+                    )}
+
                     {/* Submit */}
                     <button
                       id="contact-form-submit"
                       type="submit"
-                      className="w-full inline-flex items-center justify-center gap-3 px-8 py-4 bg-amber hover:bg-amber-light text-charcoal-950 font-sans font-bold text-sm tracking-widest uppercase rounded-sm transition-all amber-glow"
+                      disabled={loading}
+                      className="w-full inline-flex items-center justify-center gap-3 px-8 py-4 bg-amber hover:bg-amber-light disabled:bg-steel-600 disabled:text-steel-400 text-charcoal-950 font-sans font-bold text-sm tracking-widest uppercase rounded-sm transition-all amber-glow cursor-pointer disabled:cursor-not-allowed"
                     >
-                      <Send className="w-4 h-4 shrink-0" />
-                      Send Message
+                      {loading ? (
+                        <>
+                          <Clock className="w-4 h-4 shrink-0 animate-spin" />
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          <Send className="w-4 h-4 shrink-0" />
+                          Send Message
+                        </>
+                      )}
                     </button>
                   </form>
                 )}
