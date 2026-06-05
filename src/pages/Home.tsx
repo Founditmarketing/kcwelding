@@ -229,7 +229,7 @@ export const Home: React.FC = () => {
             >
               <div className="absolute -top-4 -left-4 w-full h-full border-2 border-amber/30 z-0" />
               <img 
-                src="/gallery/KC-Welding-3-scaled.jpeg" 
+                src="/about1.jpeg" 
                 alt="Welder working an active arc inside industrial equipment" 
                 className="relative z-10 w-full h-[500px] object-cover object-center forge-glow"
                 referrerPolicy="no-referrer"

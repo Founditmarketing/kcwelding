@@ -61,22 +61,21 @@ export const Navbar: React.FC = () => {
             >
               <div className="relative">
                 <img
-                  src="/gallery/Black-Red-Minimalist-Welding-Man-Logo-T2.png"
+                  src="/new kc logo.png"
                   alt="KC Welding Logo"
                   className={cn(
                     'w-auto transition-all duration-300 drop-shadow-lg',
-                    scrolled ? 'h-20 translate-y-1' : 'h-32 translate-y-3'
+                    scrolled ? 'h-12' : 'h-16'
                   )}
                 />
                 {/* Amber glow dot behind logo */}
                 <div className={cn(
-                  "absolute inset-0 -z-10 rounded-full bg-amber/10 blur-xl scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-500",
-                  scrolled ? "translate-y-1" : "translate-y-3"
+                  "absolute inset-0 -z-10 rounded-full bg-amber/10 blur-xl scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                 )} />
               </div>
               <div className={cn(
                 "flex flex-col leading-none transition-all duration-300 z-10",
-                scrolled ? "-ml-3" : "-ml-8"
+                scrolled ? "ml-0" : "ml-1"
               )}>
                 <span
                   className={cn(
@@ -188,9 +187,9 @@ export const Navbar: React.FC = () => {
               <div className="flex items-center justify-between px-6 h-20 border-b border-steel-600/30 shrink-0">
                 <Link to="/" onClick={() => setIsOpen(false)} className="flex items-center gap-3">
                   <img
-                    src="/gallery/Black-Red-Minimalist-Welding-Man-Logo-T2.png"
+                    src="/new kc logo.png"
                     alt="KC Welding"
-                    className="h-12 w-auto"
+                    className="h-10 w-auto"
                   />
                   <div className="flex flex-col leading-none">
                     <span className="font-display text-xl tracking-widest text-white">KC WELDING</span>

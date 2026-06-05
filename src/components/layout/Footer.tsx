@@ -29,12 +29,12 @@ export const Footer: React.FC = () => {
           <div className="space-y-6 sm:col-span-2 lg:col-span-1">
             <Link to="/" className="flex items-center group" aria-label="KC Welding — Home">
               <img
-                src="/gallery/Black-Red-Minimalist-Welding-Man-Logo-T2.png"
+                src="/new kc logo.png"
                 alt="KC Welding Logo"
-                className="h-28 w-auto transition-opacity group-hover:opacity-80 drop-shadow-md"
+                className="h-16 w-auto transition-opacity group-hover:opacity-80 drop-shadow-md"
                 referrerPolicy="no-referrer"
               />
-              <div className="flex flex-col leading-none -ml-3 z-10">
+              <div className="flex flex-col leading-none ml-2 z-10">
                 <span className="font-display text-2xl tracking-widest text-white">KC WELDING</span>
                 <span className="text-[10px] tracking-[0.25em] text-amber-light uppercase font-sans mt-0.5">&amp; Fabrication</span>
               </div>
