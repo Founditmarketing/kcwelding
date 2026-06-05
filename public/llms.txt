@@ -1,0 +1,23 @@
+# KC Welding & Fabrication
+
+Premium mobile welding and fabrication services in Central Louisiana. Forged in fire, built to last.
+
+## Core Pages
+- [Home](https://kc-welding.com/)
+- [About Us](https://kc-welding.com/about)
+- [Services](https://kc-welding.com/services)
+- [Portfolio](https://kc-welding.com/gallery)
+- [Contact](https://kc-welding.com/contact)
+
+## Services
+- [Emergency Repair](https://kc-welding.com/services/emergency-repair)
+- [Torch Cutting](https://kc-welding.com/services/torch-cutting)
+- [Fabrication](https://kc-welding.com/services/fabrication)
+- [Fence Repair](https://kc-welding.com/services/fence-repair)
+- [Equipment Repair](https://kc-welding.com/services/equipment-repair)
+- [Trailer Repair](https://kc-welding.com/services/trailer-repair)
+- [MIG / TIG / STICK / FLUX-CORE](https://kc-welding.com/services/welding-techniques)
+- [Duck Blind](https://kc-welding.com/services/duck-blind)
+- [Tractor Modifications](https://kc-welding.com/services/tractor-modifications)
+- [Lean-To](https://kc-welding.com/services/lean-to)
+- [Metal Building](https://kc-welding.com/services/metal-building)
