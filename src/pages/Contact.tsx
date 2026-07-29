@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Phone, Mail, Facebook, MapPin, Send, Clock, Zap, AlertTriangle } from 'lucide-react';
 import { COMPANY_INFO } from '@/src/lib/constants';
+import { PageSEO } from '@/src/components/seo/PageSEO';
 
 /* ─── Field wrapper helpers ──────────────────────────────────── */
 const labelCls = 'block text-xs font-sans font-semibold tracking-[0.2em] uppercase text-steel-400 mb-2';
@@ -57,6 +58,11 @@ export const Contact: React.FC = () => {
 
   return (
     <div className="pt-20">
+      <PageSEO
+        title="Contact"
+        description="Get in touch with KC Welding & Fabrication for a quote on mobile welding, fabrication, or repair services in Central Louisiana."
+        path="/contact"
+      />
 
       {/* ── Page Hero ─────────────────────────────────────────── */}
       <section className="relative py-40 overflow-hidden">

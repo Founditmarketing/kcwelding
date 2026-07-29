@@ -6,3 +6,7 @@ coverage/
 *.log
 .env*
 !.env.example
+
+# Local-only raw asset dumps, not referenced by the site
+/drive-download-20260323T214535Z-3-001/
+/blue welding flames/

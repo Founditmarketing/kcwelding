@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kc-welding.com/sitemap.xml
+Sitemap: https://www.kc-welding.com/sitemap.xml

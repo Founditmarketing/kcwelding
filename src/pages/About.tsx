@@ -4,10 +4,16 @@ import { Shield, MapPin, Hammer, Users, Heart, Star } from 'lucide-react';
 import { COMPANY_INFO } from '@/src/lib/constants';
 import { SectionHeading } from '@/src/components/ui/SectionHeading';
 import { Card } from '@/src/components/ui/Card';
+import { PageSEO } from '@/src/components/seo/PageSEO';
 
 export const About: React.FC = () => {
   return (
     <div className="pt-20">
+      <PageSEO
+        title="About Us"
+        description="Learn about KC Welding & Fabrication — professional mobile welding and fabrication serving Central Louisiana since 2021."
+        path="/about"
+      />
       {/* Hero */}
       <section className="relative py-32 bg-iron-black overflow-hidden">
         <div className="absolute inset-0 opacity-20">

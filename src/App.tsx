@@ -8,6 +8,7 @@ import { About } from './pages/About';
 import { Services } from './pages/Services';
 import { Gallery } from './pages/Gallery';
 import { Contact } from './pages/Contact';
+import { LocalBusinessSchema } from './components/seo/LocalBusinessSchema';
 
 // Scroll to top on route change
 function ScrollToTop() {
@@ -22,6 +23,7 @@ export default function App() {
   return (
     <Router>
       <ScrollToTop />
+      <LocalBusinessSchema />
       <div className="relative min-h-screen flex flex-col">
         <Navbar />
         <main className="flex-grow relative z-10">

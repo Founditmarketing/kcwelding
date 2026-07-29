@@ -6,6 +6,7 @@ import { COMPANY_INFO, SERVICES, GALLERY_IMAGES } from '@/src/lib/constants';
 import { Button } from '@/src/components/ui/Button';
 import { Card } from '@/src/components/ui/Card';
 import { SectionHeading } from '@/src/components/ui/SectionHeading';
+import { PageSEO } from '@/src/components/seo/PageSEO';
 
 /* ─── Ticker items ──────────────────────────────────────────── */
 const TICKER_ITEMS = [
@@ -26,6 +27,11 @@ const TICKER_ITEMS = [
 export const Home: React.FC = () => {
   return (
     <div className="relative">
+      <PageSEO
+        title="KC Welding & Fabrication"
+        description="Professional mobile welding and fabrication serving Central Louisiana. Any size job — priced fairly, done right."
+        path="/"
+      />
 
       {/* ═══════════════════════════════════════════════════════════
           HERO SECTION

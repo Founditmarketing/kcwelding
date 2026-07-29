@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { X, Maximize2, ChevronLeft, ChevronRight } from 'lucide-react';
 import { GALLERY_IMAGES } from '@/src/lib/constants';
 import { SectionHeading } from '@/src/components/ui/SectionHeading';
+import { PageSEO } from '@/src/components/seo/PageSEO';
 
 export const Gallery: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -38,6 +39,11 @@ export const Gallery: React.FC = () => {
 
   return (
     <div className="pt-20">
+      <PageSEO
+        title="Gallery"
+        description="Browse photos of KC Welding & Fabrication's completed welding, fabrication, and repair projects across Central Louisiana."
+        path="/gallery"
+      />
       <section className="relative min-h-[65vh] flex items-center bg-iron-black overflow-hidden">
         <div className="absolute inset-0">
           {/* Green-flame filter: wide welding scene */}

@@ -6,6 +6,7 @@ import { SERVICES, COMPANY_INFO } from '@/src/lib/constants';
 import { SectionHeading } from '@/src/components/ui/SectionHeading';
 import { Card } from '@/src/components/ui/Card';
 import { Button } from '@/src/components/ui/Button';
+import { PageSEO } from '@/src/components/seo/PageSEO';
 
 export const Services: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -15,8 +16,29 @@ export const Services: React.FC = () => {
     const service = SERVICES.find(s => s.id === id);
     if (!service) return <div>Service not found</div>;
 
+    const serviceSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      serviceType: service.title,
+      name: `${service.title} | ${COMPANY_INFO.name}`,
+      description: service.description,
+      areaServed: 'Central Louisiana',
+      provider: {
+        '@type': 'LocalBusiness',
+        name: COMPANY_INFO.name,
+        telephone: `+1${COMPANY_INFO.phoneRaw}`,
+      },
+    };
+
     return (
       <div className="pt-20">
+        <PageSEO
+          title={service.title}
+          description={service.description}
+          path={`/services/${service.id}`}
+          image={service.image}
+          jsonLd={serviceSchema}
+        />
         <section className="relative py-32 bg-iron-black overflow-hidden">
           <div className="absolute inset-0 opacity-30">
             <img src={service.image} alt={service.title} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
@@ -67,6 +89,11 @@ export const Services: React.FC = () => {
   // Services Hub View
   return (
     <div className="pt-20">
+      <PageSEO
+        title="Services"
+        description="Explore KC Welding & Fabrication's full range of mobile welding services in Central Louisiana — emergency repair, torch cutting, fabrication, and more."
+        path="/services"
+      />
       <section className="relative py-32 bg-iron-black overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <img src="/gallery/KC-Welding-pt-2-2-scaled.jpeg" alt="Services Background" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
