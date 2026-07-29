@@ -7,6 +7,7 @@ import { SectionHeading } from '@/src/components/ui/SectionHeading';
 import { Card } from '@/src/components/ui/Card';
 import { Button } from '@/src/components/ui/Button';
 import { PageSEO } from '@/src/components/seo/PageSEO';
+import { NotFound } from '@/src/pages/NotFound';
 
 export const Services: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -14,7 +15,7 @@ export const Services: React.FC = () => {
   // Service Detail View
   if (id) {
     const service = SERVICES.find(s => s.id === id);
-    if (!service) return <div>Service not found</div>;
+    if (!service) return <NotFound />;
 
     const serviceSchema = {
       '@context': 'https://schema.org',

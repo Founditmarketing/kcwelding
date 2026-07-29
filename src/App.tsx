@@ -8,6 +8,7 @@ import { About } from './pages/About';
 import { Services } from './pages/Services';
 import { Gallery } from './pages/Gallery';
 import { Contact } from './pages/Contact';
+import { NotFound } from './pages/NotFound';
 import { LocalBusinessSchema } from './components/seo/LocalBusinessSchema';
 
 // Scroll to top on route change
@@ -34,6 +35,7 @@ export default function App() {
             <Route path="/services/:id" element={<Services />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />
